@@ -1,66 +1,68 @@
-    async function getPhotographers() {
-        // Penser à remplacer par les données récupérées dans le json
-	    const data = await fetch("../data/photographers.json")
-        const photographers = data
-        // et bien retourner le tableau photographers seulement une fois
-        return ({
-            photographers: [photographers]})
+async function getPhotographers() {
+    // Penser à remplacer par les données récupérées dans le json
+
+    const data = await fetch("https://raw.githubusercontent.com/Animasso/AnimassoSidibe_6_070320202/main/data/photographers.json")
+    .then(response => response.json())
+    console.log(data);
+    const photographers = data.photographers
+    // et bien retourner le tableau photographers seulement une fois
+    return ({
+        photographers: [...photographers]})
+}
+class Photographer {
+    constructor(data) {
+        this.name = data.name
+        this.id = data.id
+        this.city = data.city
+        this.country = data.country
+        this.tagline = data.tagline
+        this.price = data.price  
+        this.portait = data.portait           
     }
-    class photographer {
-        constructor(data) {
-            this.name = data.name
-            this.id = data.id
-            this.city = data.city
-            this.country = data.country
-            this.tagline = data.tagline
-            this.price = data.price  
-            this.portait = data.portait           
-        }
-     
-        get name() {
-            return this.name
-        }
-     
-        get id() {
-            return this.id
-        }
+ 
+    get name() {
+        return this.name
+    }
+ 
+    get id() {
+        return this.id
+    }
 
-        get city() {
-            return this.city
-        }
+    get city() {
+        return this.city
+    }
 
-        get country() {
-            return this.country
-        }
+    get country() {
+        return this.country
+    }
 
-        get tagline() {
-            return this.tagline
-        }
+    get tagline() {
+        return this.tagline
+    }
 
-        get price() {
-            return this.price
-        }
+    get price() {
+        return this.price
+    }
 
-        get portait() {
-            return this.portait
-        }
-     }
+    get portait() {
+        return this.portait
+    }
+ }
 
-    async function displayData(photographers) {
-        const photographersSection = document.querySelector(".photographer_section");
+async function displayData(photographers) {
+    const photographersSection = document.querySelector(".photographer_section");
 
-        photographers.forEach((photographer) => {
-            const photographerModel = photographerFactory(photographer);
-            const userCardDOM = photographerModel.getUserCardDOM();
-            photographersSection.appendChild(userCardDOM);
-        });
-    };
+    photographers.forEach((photographer) => {
+        const photographerModel = photographerFactory(photographer);
+        const userCardDOM = photographerModel.getUserCardDOM();
+        photographersSection.appendChild(userCardDOM);
+    });
+};
 
-    async function init() {
-        // Récupère les datas des photographes
-        const { photographers } = await getPhotographers();
-        displayData(photographers);
-    };
-    
-    init();
-    
+async function init() {
+    // Récupère les datas des photographes
+    const { photographers } = await getPhotographers();
+    displayData(photographers);
+};
+
+init();
