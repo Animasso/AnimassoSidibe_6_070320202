@@ -38,14 +38,16 @@ h1 {
   flex-direction: column;
 }
 
-.photographer_section article h2 {
+.photographer_section article h2,
+p.name {
   color: #d3573c;
   font-size: 36px;
   font-weight: 400;
   margin: 5px;
 }
 
-.photographer_section article img {
+.photographer_section article img,
+.photograph-header img {
   height: 200px;
   width: 200px;
   border-radius: 200px;
@@ -55,12 +57,14 @@ h1 {
   -o-border-radius: 200px;
   object-fit: cover;
 }
-.photographer_section article h3 {
+.photographer_section article h3,
+p.localisation {
   color: #d3573c;
   font-size: 18px;
   margin: 5px;
 }
-.photographer_section article h4 {
+.photographer_section article h4,
+p.taglign {
   font-size: 15px;
   color: black;
   margin: 5px;
