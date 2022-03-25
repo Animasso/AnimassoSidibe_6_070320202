@@ -7,4 +7,6 @@ async function photographerSolo() {
     // et bien retourner le tableau photographers seulement une fois
     return ({
         photographers: [...photographers]})
+        
 }
+
