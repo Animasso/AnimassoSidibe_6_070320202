@@ -79,13 +79,13 @@ p.taglign {
 }
 
 @media screen and (max-width: 768px) {
-  .photographer_section {
+  .photographer_section article {
     display: flex;
     flex-direction: column;
   }
 }
 @media screen and (max-width: 425px) {
-  .photographer_section {
+  .photographer_section article {
     display: flex;
     flex-direction: column;
   }

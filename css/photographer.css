@@ -118,6 +118,19 @@ form input {
   border-radius: 5px;
 }
 textarea {
-  width: 1000%;
+  width: 100%;
   height: 200px;
+}
+.like_price {
+  width: 20%;
+  background-color: #db8876;
+  position: fixed;
+  bottom: 0;
+  right: 5%;
+}
+.sticky_footer {
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
 }

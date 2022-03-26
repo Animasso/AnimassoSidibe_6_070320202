@@ -1,29 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <title>Fisheye - photographe</title>
   </head>
   <body>
     <header role="banner">
-      <a href="./index.html">
-      <img src="assets/images/logo.png" class="logo" />
-    </a>
+      <a href="./index.html" aria-label="lien vers la page d'acceuil">
+        <img src="assets/images/logo.png" class="logo" />
+      </a>
     </header>
     <main role="main" id="mainPhotograph">
       <section class="photographHeader" aria-label="photographer info">
-          <div class="name_localisation">
-            <p class="name">Mimi keel</p>
-            <p class="localisation">Uk, london</p>
-            <p class="taglign">Voir le beau dans le quotidien</p>
-          </div>
-          <section class="contact" role="dialog">
-            <button role="button" aria-label="contact me" class="contact_button" onclick="displayModal()">Contactez-moi</button>
-          </section>
-          <img src="assets/photographers/Photographers ID Photos/MimiKeel.jpg" alt="">
+        <div class="name_localisation">
+          <p class="name">Mimi keel</p>
+          <p class="localisation">Uk, london</p>
+          <p class="taglign">Voir le beau dans le quotidien</p>
+        </div>
+        <section class="contact" role="dialog">
+          <button
+            role="button"
+            aria-label="contact me"
+            class="contact_button"
+            onclick="displayModal()"
+          >
+            Contactez-moi
+          </button>
+        </section>
+        <img
+          src="assets/photographers/Photographers ID Photos/MimiKeel.jpg"
+          alt=""
+        />
       </section>
       <div id="select">
         <label for="filter-select">Trier par </label>
@@ -35,39 +48,69 @@
       </div>
       <section class="display-photos" aria-label="photographer list">
         <div class="photos-artist">
-          <img src="assets/photographers/Photographers ID Photos/MimiKeel.jpg" alt="artist photos" />
+          <img
+            src="assets/photographers/Photographers ID Photos/MimiKeel.jpg"
+            alt="artist photos"
+          />
         </div>
         <p class="photos-title">Un soleil couchant</p>
       </section>
     </main>
     <div id="contact_modal">
-			<div class="modal">
+      <div class="modal">
         <header>
-				
-          <h2>Contactez-moi <br/>Mimi keel</h2>
+          <h2>Contactez-moi <br />Mimi keel</h2>
           <img src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
 
-				<form id="contact_Photograph" role="form" >
-					<div role="group" aria-labelledby="formulaire"> 
-						<label for="first_name">Prénom</label>
-            <input type="text" name="first_name" id="first_name" aria-required="true" minlength="2">
+        <form id="contact_Photograph" role="form">
+          <div role="group" aria-labelledby="formulaire">
+            <label for="first_name">Prénom</label>
+            <input
+              type="text"
+              name="first_name"
+              autocomplete="given-name"
+              id="first_name"
+              aria-required="true"
+              minlength="2"
+            />
 
             <label for="last_name">Nom</label>
-            <input type="text" name="last_name" id="last_name" aria-required="true" minlength="2">
+            <input
+              type="text"
+              name="last_name"
+              autocomplete="family-name"
+              id="last_name"
+              aria-required="true"
+              minlength="2"
+            />
 
             <label for="email">Email</label>
-            <input type="email" name="email" id="email" aria-required="true" >
+            <input
+              type="email"
+              name="email"
+              autocomplete="email"
+              id="email"
+              aria-required="true"
+            />
 
             <label for="message">Votre message</label>
-            <textarea  name="message" id="message" aria-required="true" ></textarea>
-					</div>
+            <textarea
+              name="message"
+              id="message"
+              aria-required="true"
+            ></textarea>
+          </div>
           <button class="contact_button" type="submit">Envoyer</button>
-				</form>
-
-			</div>
-		</div>
+        </form>
+      </div>
+    </div>
+    <footer class="like_price">
+      <section class="sticky_footer">
+        <div class="totallike">2234</div>
+        <div class="price_day">300$ /jour</div>
+      </section>
+    </footer>
     <script src="/scripts/utils/contactForm.js"></script>
-    
   </body>
 </html>
