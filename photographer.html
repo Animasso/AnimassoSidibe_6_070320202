@@ -2,6 +2,12 @@
 <html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <link
+      rel="stylesheet"
+      href="path/to/font-awesome/css/font-awesome.min.css"
+    />
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="assets/favicon.png" />
     <link
@@ -19,14 +25,14 @@
     <main role="main" id="mainPhotograph">
       <section class="photographHeader" aria-label="photographer info">
         <div class="name_localisation">
-          <p class="name">Mimi keel</p>
-          <p class="localisation">Uk, london</p>
-          <p class="taglign">Voir le beau dans le quotidien</p>
+          <p class="name" tabindex="0">Mimi keel</p>
+          <p class="localisation" tabindex="0">Uk, london</p>
+          <p class="taglign" tabindex="0">Voir le beau dans le quotidien</p>
         </div>
         <section class="contact" role="dialog">
           <button
             role="button"
-            aria-label="contact me"
+            aria-label="prendre contact"
             class="contact_button"
             onclick="displayModal()"
           >
@@ -36,6 +42,7 @@
         <img
           src="assets/photographers/Photographers ID Photos/MimiKeel.jpg"
           alt=""
+          tabindex="0"
         />
       </section>
       <div id="select">
@@ -46,14 +53,20 @@
           <option value="Titre">Titre</option>
         </select>
       </div>
-      <section class="display-photos" aria-label="photographer list">
+      <section
+        class="display-photos"
+        aria-label="media du photographe"
+        tabindex="0"
+      >
         <div class="photos-artist">
           <img
             src="assets/photographers/Photographers ID Photos/MimiKeel.jpg"
             alt="artist photos"
+            aria-label="photographe photo"
+            tabindex="0"
           />
+          <p class="photos-title" tabindex="0">Un soleil couchant</p>
         </div>
-        <p class="photos-title">Un soleil couchant</p>
       </section>
     </main>
     <div id="contact_modal">
@@ -105,10 +118,12 @@
         </form>
       </div>
     </div>
-    <footer class="like_price">
+    <footer class="like_price" role="contentinfo">
       <section class="sticky_footer">
-        <div class="totallike">2234</div>
-        <div class="price_day">300$ /jour</div>
+        <span class="likes" tabindex="0" aria-label="nombre de like"
+          >2234 <i class="fa-solid fa-heart"></i
+        ></span>
+        <span class="price" tabindex="0" aria-label="prix ">300$ /jour</span>
       </section>
     </footer>
     <script src="/scripts/utils/contactForm.js"></script>
