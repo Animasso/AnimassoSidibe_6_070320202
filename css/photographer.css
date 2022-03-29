@@ -150,9 +150,15 @@ textarea {
   justify-content: space-between;
   margin: 20px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 890px) {
+  .secondHeader {
+    margin: 0;
+  }
   .logo {
     margin-left: 10px;
+  }
+  .photographHeader {
+    margin: 0 70px;
   }
   .photographHeader img {
     height: 150px;
@@ -164,9 +170,14 @@ textarea {
     -o-border-radius: 150px;
     object-fit: cover;
   }
+  .contact_button {
+    font-size: 14px;
+    width: 120px;
+    height: 50px;
+  }
   .photos-artist img {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     object-fit: cover;
   }
   .photos-title {
@@ -183,5 +194,11 @@ textarea {
   }
   .contact {
     margin: 20px;
+  }
+}
+@media screen and (max-width: 660px) {
+  .photographHeader {
+    height: auto;
+    flex-direction: column;
   }
 }
