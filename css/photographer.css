@@ -201,4 +201,24 @@ textarea {
     height: auto;
     flex-direction: column;
   }
+  .like_price {
+    width: 30%;
+  }
+}
+@media screen and (max-width: 425px) {
+  .like_price {
+    width: 30%;
+  }
+  .photos-artist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .sticky_footer {
+    display: flex;
+    flex-direction: column;
+  }
+  .price {
+    margin-left: 0;
+  }
 }

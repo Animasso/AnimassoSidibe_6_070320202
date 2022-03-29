@@ -78,16 +78,11 @@ p.taglign {
 }
 
 @media screen and (max-width: 768px) {
-  header {
-    margin-left: 40px;
-  }
   .photographer_section {
     display: flex;
     flex-direction: column;
   }
-  .photographer_section article {
-    background-color: #48d33c;
-  }
+
   .photographer_section article img {
     height: 400px;
     width: 400px;
@@ -126,9 +121,7 @@ p.taglign {
     margin-left: 0px;
     margin-right: 0;
   }
-  .photographer_section article {
-    background-color: aqua;
-  }
+
   .photographer_section article img {
     height: 250px;
     width: 250px;
