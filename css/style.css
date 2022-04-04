@@ -37,7 +37,12 @@ h1 {
   align-items: center;
   flex-direction: column;
 }
-
+.name_localisation {
+  margin-left: 20px;
+}
+.image-up img {
+  margin-right: 20px;
+}
 .photographer_section article h2,
 p.name {
   color: #d3573c;
@@ -136,7 +141,7 @@ p.taglign {
     font-size: 40px;
   }
   .photographer_section article h3 {
-    font-size: 35px;
+    font-size: 25px;
   }
   .photographer_section article h4 {
     font-size: 20px;
