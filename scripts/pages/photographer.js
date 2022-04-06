@@ -12,8 +12,8 @@ async function photographerSolo() {
 
     const photographers = data.photographers
     const medias = data.media
-    const onePhotograph =photographers.filter((photographer)=>photographer.id == idPhotographer)
-    const oneMedia = medias.find((media)=> media.photographerId == idPhotographer)
+    const onePhotograph =photographers.find((photographer)=>photographer.id == idPhotographer)
+    const oneMedia = medias.filter((media)=> media.photographerId == idPhotographer)
     console.log(oneMedia);
     console.log(onePhotograph);
     // et bien retourner le tableau photographers seulement une fois
