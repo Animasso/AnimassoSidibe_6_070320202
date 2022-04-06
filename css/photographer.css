@@ -166,9 +166,15 @@ textarea {
   justify-content: space-between;
   width: 350px;
 }
-.heart,
-.icon-heart {
+.heart {
   margin-top: 5px;
+}
+.fa-solid {
+  margin-top: 8px;
+  cursor: pointer;
+}
+.fa-solid:hover {
+  color: #a16868;
 }
 .numberLike {
   display: flex;
