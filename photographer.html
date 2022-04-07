@@ -23,30 +23,10 @@
       </a>
     </header>
     <main role="main" id="mainPhotograph">
-      <section class="photographHeader" aria-label="photographer info">
-        <div class="name_localisation">
-          <p class="name" tabindex="0">Mimi keel</p>
-          <p class="localisation" tabindex="0">Uk, london</p>
-          <p class="taglign" tabindex="0">Voir le beau dans le quotidien</p>
-        </div>
-        <section class="contact" role="dialog">
-          <button
-            role="button"
-            aria-label="prendre contact"
-            class="contact_button"
-            onclick="displayModal()"
-          >
-            Contactez-moi
-          </button>
-        </section>
-        <div class="image-up">
-          <img
-            src="assets/photographers/Photographers ID Photos/MimiKeel.jpg"
-            alt=""
-            tabindex="0"
-          />
-        </div>
-      </section>
+      <section
+        class="photographHeader"
+        aria-label="photographer info"
+      ></section>
       <div id="select">
         <label for="filter-select">Trier par </label>
         <select name="select" id="filter-select">
@@ -262,7 +242,8 @@
         <span class="price" tabindex="0" aria-label="prix ">300$ /jour</span>
       </section>
     </footer>
-    <script src="/scripts/factories/onePhographer.js"></script>
+
+    <script src="/scripts/factories/photographer.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
   </body>

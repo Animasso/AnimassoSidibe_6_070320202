@@ -31,7 +31,34 @@ function photographerFactory(data) {
         article.appendChild(h5)
         return (article);
     }
+    function getUserHeaderDOM() {
+       return `
+        <div class="name_localisation">
+          <p class="name" tabindex="0">${name}</p>
+          <p class="localisation" tabindex="0">${city + ", " + country}</p>
+          <p class="taglign" tabindex="0">${tagline}</p>
+        </div>
+        <section class="contact" role="dialog">
+          <button
+            role="button"
+            aria-label="prendre contact"
+            class="contact_button"
+            onclick="displayModal()"
+          >
+            Contactez-moi
+          </button>
+        </section>
+        <div class="image-up">
+          <img
+            src="${picture}"
+            alt=""
+            tabindex="0"
+          />
+        </div>
+        `
+       
+    }
 
-    return { name,id, picture,city,country,tagline,price, getUserCardDOM }
+    return { name,id, picture,city,country,tagline,price, getUserCardDOM ,getUserHeaderDOM}
 }
 
