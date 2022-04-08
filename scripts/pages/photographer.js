@@ -4,8 +4,7 @@ function displayHeader(photographer){
     const photographerModel = photographerFactory(photographer);
     const userHeaderDOM = photographerModel.getUserHeaderDOM();
     /*banner.appendChild(userHeaderDOM)*/
-    banner.innerHTML=userHeaderDOM
-    console.log(userHeaderDOM);
+    banner.appendChild(userHeaderDOM)
 
 }
 

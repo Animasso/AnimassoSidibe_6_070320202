@@ -181,11 +181,15 @@
         aria-hidden="true"
         role="dialog"
         aria-describedby="formulaire de contact"
-        tabindex="1"
       >
         <header>
-          <h2>Contactez-moi <br />Mimi keel</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <h2 tabindex="0">Contactez-moi <br />Mimi keel</h2>
+          <img
+            src="assets/icons/close.svg"
+            tabindex="0"
+            onclick="closeModal()"
+            aria-label="fermer le formulaire"
+          />
         </header>
 
         <form id="contact_Photograph" role="form">

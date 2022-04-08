@@ -32,31 +32,53 @@ function photographerFactory(data) {
         return (article);
     }
     function getUserHeaderDOM() {
-       return `
-        <div class="name_localisation">
-          <p class="name" tabindex="0">${name}</p>
-          <p class="localisation" tabindex="0">${city + ", " + country}</p>
-          <p class="taglign" tabindex="0">${tagline}</p>
-        </div>
-        <section class="contact" role="dialog">
-          <button
-            role="button"
-            aria-label="prendre contact"
-            class="contact_button"
-            onclick="displayModal()"
-          >
-            Contactez-moi
-          </button>
-        </section>
-        <div class="image-up">
-          <img
-            src="${picture}"
-            alt=""
-            tabindex="0"
-          />
-        </div>
-        `
-       
+    const banner = document.querySelector('.photographHeader')
+        const sectionHeader = document.createElement('article')
+        sectionHeader.classList.add('infoPhotograph')
+        banner.appendChild(sectionHeader)
+
+        const localisation = document.createElement('div')
+        localisation.classList.add('name_localisation')
+        sectionHeader.appendChild(localisation)
+        
+        const pname = document.createElement('p')
+        const plocalisation = document.createElement('p')
+        const ptaglign =document.createElement('p')
+        pname.classList.add('name')
+        pname.setAttribute("tabindex",0)
+        plocalisation.classList.add('localisation')
+        plocalisation.setAttribute("tabindex",0)
+        ptaglign.classList.add('taglign')
+        ptaglign.setAttribute("tabindex",0)
+        pname.textContent = name
+        plocalisation.textContent = city +',' + " " + country
+        ptaglign.textContent = tagline
+        localisation.appendChild(pname)
+        localisation.appendChild(plocalisation)
+        localisation.appendChild(ptaglign)
+
+        const dialogueContact = document.createElement('section')
+        sectionHeader.appendChild(dialogueContact)
+        dialogueContact.classList.add('contact')
+        const contactButton =document.createElement('button')
+        contactButton.classList.add('contact_button')
+        contactButton.setAttribute('role','dialogue')
+        contactButton.setAttribute('aria-label','prendre contact')
+        contactButton.setAttribute('onclick' ,'displayModal()')
+        dialogueContact.appendChild(contactButton)
+        contactButton.textContent = 'Contactez-moi'
+
+        const imagephotgraph = document.createElement('div')
+        imagephotgraph.classList.add('image-up')
+        sectionHeader.appendChild(imagephotgraph)
+        const imgHeader = document.createElement( 'img' );
+        imgHeader.setAttribute("src", picture)
+        imgHeader.setAttribute("alt",name)
+        imgHeader.setAttribute("aria-label", name)
+        imgHeader.setAttribute("tabindex",0)
+        imagephotgraph.appendChild(imgHeader)
+
+       return sectionHeader
     }
 
     return { name,id, picture,city,country,tagline,price, getUserCardDOM ,getUserHeaderDOM}
