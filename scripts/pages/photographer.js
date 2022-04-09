@@ -7,7 +7,15 @@ function displayHeader(photographer){
     banner.appendChild(userHeaderDOM)
 
 }
+function displayMedias(medias){
 
+    medias.forEach((oneMedia)=>{
+        const photoArtist = document.querySelector('photos-artist')
+        const mediasModel = mediaListFactory(oneMedia)
+        const mediasCardDOM =mediasModel.mediasCardDOM()
+        photoArtist.appendChild(mediasCardDOM)
+    })
+}
 
 async function init() {
     const data = await fetch("https://raw.githubusercontent.com/Animasso/AnimassoSidibe_6_070320202/main/data/photographers.json")
@@ -26,9 +34,10 @@ async function init() {
     displayHeader(onePhotograph)
 
     const oneMedia = medias.filter((media)=> media.photographerId == idPhotographer)
+    displayMedias(oneMedia)
     console.log(oneMedia);
     console.log(onePhotograph);
-    // et bien retourner le tableau photographers seulement une fois
+    
     
 }
 
