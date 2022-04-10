@@ -5,17 +5,19 @@ function mediaListFactory(data) {
     
     function mediasCardDOM() {
 
-        const photoArtist = document.querySelector('.photos-artist')
+    
+        const photosPlusTitle = document.createElement('div')
+        photosPlusTitle.classList.add('photos_Plus_Title')
         const imgMain = document.createElement('img')
         imgMain.setAttribute('src',mediasImages)
-        imgMain.setAttribute('alt',alt)
+        imgMain.setAttribute('alt','alt')
         imgMain.setAttribute('aria-label','photographe photo')
         imgMain.setAttribute('tabindex',0)
-        photoArtist.appendChild(imgMain)
+        photosPlusTitle.appendChild(imgMain)
         
         const photoTitle = document.createElement('div')
         photoTitle.classList.add('photos-title')
-        photoArtist.appendChild(photoTitle)
+        photosPlusTitle.appendChild(photoTitle)
         
         
         const title = document.createElement('div')
@@ -37,9 +39,9 @@ function mediaListFactory(data) {
         photoTitle.appendChild(pLike)
         
         const iheart = document.createElement('i')
-        iheart.classList.add('fa-solid fa-heart')
+        iheart.classList.add('fa-solidfa-heart')
         photoTitle.appendChild(iheart)
-        return photoArtist
+        return photosPlusTitle
     }
 
     return { id,name,date , alt , likes,price,title,image,photographerId ,mediasCardDOM }

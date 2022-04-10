@@ -10,10 +10,10 @@ function displayHeader(photographer){
 function displayMedias(medias){
 
     medias.forEach((oneMedia)=>{
-        const photoArtist = document.querySelector('photos-artist')
+        const displayPhotos = document.querySelector('.display-photos')
         const mediasModel = mediaListFactory(oneMedia)
         const mediasCardDOM =mediasModel.mediasCardDOM()
-        photoArtist.appendChild(mediasCardDOM)
+        displayPhotos.appendChild(mediasCardDOM)
     })
 }
 
