@@ -1,8 +1,9 @@
 function mediaListFactory(data) {
-    const {id, name ,date , alt , likes,price,title,image,photographerId} = data;
+    const {id,name,date,likes,price,title,image,video,photographerId} = data;
 
     const mediasImages = `assets/photographers/${photographerId}/${image}`;
-    
+    const mediasVideos = `assets/photographers/${photographerId}/${video}`
+    const likeheart =`assets/icons/heart.png`
     function mediasCardDOM() {
 
     
@@ -10,7 +11,6 @@ function mediaListFactory(data) {
         photosPlusTitle.classList.add('photos_Plus_Title')
         const imgMain = document.createElement('img')
         imgMain.setAttribute('src',mediasImages)
-        imgMain.setAttribute('alt','alt')
         imgMain.setAttribute('aria-label','photographe photo')
         imgMain.setAttribute('tabindex',0)
         photosPlusTitle.appendChild(imgMain)
@@ -20,11 +20,11 @@ function mediaListFactory(data) {
         photosPlusTitle.appendChild(photoTitle)
         
         
-        const title = document.createElement('div')
-        title.classList.add('title')
-        title.setAttribute('tabindex',0)
-        title.textContent = title
-        photoTitle.appendChild(title)
+        const titles= document.createElement('div')
+        titles.classList.add('title')
+        titles.setAttribute('tabindex',0)
+        titles.textContent = title
+        photoTitle.appendChild(titles)
         
         const numberLike= document.createElement('div')
         numberLike.classList.add('numberLike')
@@ -38,13 +38,17 @@ function mediaListFactory(data) {
         pLike.setAttribute('tabindex',0)
         photoTitle.appendChild(pLike)
         
-        const iheart = document.createElement('i')
-        iheart.classList.add('fa-solidfa-heart')
+        const iheart = document.createElement('p')
+        iheart.classList.add('fa-solid')
+        const pLikeHeart = document.createElement('img')
+        pLikeHeart.setAttribute('src',likeheart)
+        iheart.appendChild(pLikeHeart)
         photoTitle.appendChild(iheart)
+
         return photosPlusTitle
     }
 
-    return { id,name,date , alt , likes,price,title,image,photographerId ,mediasCardDOM }
+    return { id,name,date,likes,price,title,image,video,photographerId,mediasCardDOM }
 }
 
 
