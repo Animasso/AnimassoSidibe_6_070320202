@@ -10,6 +10,7 @@ function mediaListFactory(data) {
         const photosPlusTitle = document.createElement('div')
         photosPlusTitle.classList.add('photos_Plus_Title')
         const imgMain = document.createElement('img')
+        imgMain.classList.add('portofolio')
         imgMain.setAttribute('src',mediasImages)
         imgMain.setAttribute('aria-label','photographe photo')
         imgMain.setAttribute('tabindex',0)
@@ -36,14 +37,14 @@ function mediaListFactory(data) {
         pLike.classList.add('heart')
         pLike.textContent = likes
         pLike.setAttribute('tabindex',0)
-        photoTitle.appendChild(pLike)
+        numberLike.appendChild(pLike)
         
         const iheart = document.createElement('p')
         iheart.classList.add('fa-solid')
         const pLikeHeart = document.createElement('img')
         pLikeHeart.setAttribute('src',likeheart)
         iheart.appendChild(pLikeHeart)
-        photoTitle.appendChild(iheart)
+        numberLike.appendChild(iheart)
 
         return photosPlusTitle
     }

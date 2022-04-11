@@ -43,8 +43,7 @@ h1 {
 .image-up img {
   margin-right: 20px;
 }
-.photographer_section article h2,
-p.name {
+.photographer_section article h2 {
   color: #d3573c;
   font-size: 36px;
   font-weight: 400;
@@ -62,14 +61,12 @@ p.name {
   -o-border-radius: 200px;
   object-fit: cover;
 }
-.photographer_section article h3,
-p.localisation {
+.photographer_section article h3 {
   color: #d3573c;
   font-size: 18px;
   margin: 5px;
 }
-.photographer_section article h4,
-p.taglign {
+.photographer_section article h4 {
   font-size: 15px;
   color: black;
   margin: 5px;

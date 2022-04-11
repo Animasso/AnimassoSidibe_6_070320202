@@ -1,7 +1,10 @@
 #contact_modal {
   display: none;
 }
-
+.logo2 {
+  height: 50px;
+  margin-left: 100px;
+}
 .infoPhotograph {
   background-color: #fafafa;
   height: 300px;
@@ -19,6 +22,25 @@
   -ms-border-radius: 150px;
   -o-border-radius: 150px;
   object-fit: cover;
+}
+p.name {
+  color: #d3573c;
+  font-size: 36px;
+  font-weight: 400;
+  margin: 5px;
+  white-space: nowrap;
+}
+p.taglign {
+  font-size: 15px;
+  color: black;
+  margin: 5px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+p.localisation {
+  color: #d3573c;
+  font-size: 18px;
+  margin: 5px;
 }
 #select {
   display: flex;
@@ -75,7 +97,7 @@ label {
   margin-top: 100px;
   margin-left: 100px;
 }
-.photos_Plus_Title img {
+.portofolio {
   width: 350px;
   height: 300px;
   border-radius: 5px;
@@ -169,6 +191,7 @@ textarea {
 .heart {
   margin-top: 5px;
   color: #901c1c;
+  margin-right: 4px;
 }
 .fa-solid {
   margin-top: 8px;
@@ -196,12 +219,10 @@ textarea {
   .secondHeader {
     margin: 0;
   }
-  .logo {
-    margin-left: 10px;
+  .logo2 {
+    margin-left: 50px;
   }
-  .photographHeader {
-    margin: 0 70px;
-  }
+
   .photographHeader img {
     height: 150px;
     width: 150px;
@@ -212,11 +233,20 @@ textarea {
     -o-border-radius: 150px;
     object-fit: cover;
   }
+  .infoPhotograph {
+    margin: 0;
+    margin-left: 50px;
+    width: fit-content;
+  }
+  #select {
+    margin-left: 50px;
+  }
   .contact_button {
     font-size: 14px;
     width: 120px;
     height: 50px;
   }
+
   .photos-artist img {
     width: 250px;
     height: 250px;
@@ -227,17 +257,26 @@ textarea {
     font-weight: 400;
     font-size: 18px;
   }
-  .photosPlusTitle img {
-    width: 20px;
-    height: 20px;
+  .portofolio {
+    width: 250px;
+    height: 200px;
   }
   .photos-title {
     width: 250px;
   }
+  .photos_Plus_Title {
+    width: 250px;
+    height: 200px;
+  }
   .display-photos {
-    margin-left: 100px;
-    gap: 50px;
     grid-template-columns: 1fr 1fr;
+    margin-left: 50px;
+  }
+  p.name {
+    font-size: 30px;
+  }
+  p.ptaglign {
+    font-size: 13px;
   }
   .like_price {
     width: 30%;
