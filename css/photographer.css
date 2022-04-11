@@ -107,6 +107,16 @@ label {
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
 }
+.portofolio video {
+  width: 350px;
+  height: 300px;
+  border-radius: 5px;
+  object-fit: cover;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
 .title {
   font-weight: 400;
   font-size: 24px;
@@ -257,7 +267,8 @@ textarea {
     font-weight: 400;
     font-size: 18px;
   }
-  .portofolio {
+  .portofolio,
+  .portofolio video {
     width: 250px;
     height: 200px;
   }
