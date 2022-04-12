@@ -333,10 +333,16 @@ textarea {
     flex-direction: column;
     align-items: center;
   }
-  .display-photos {
-    grid-template-columns: 1fr;
-    justify-content: center;
+  .infoPhotograph {
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    margin-left: 50px;
+  }
+  .display-photos {
+    display: flex;
+    flex-direction: column;
   }
   .photosPlusTitle img {
     width: 20px;
