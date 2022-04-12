@@ -42,6 +42,7 @@ function mediaListFactory(data) {
 
         const numberLike = document.createElement('div')
         numberLike.classList.add('numberLike')
+        numberLike.setAttribute('onClick','likesPhotos()') 
         numberLike.setAttribute('tabindex', 0)
         numberLike.setAttribute('aria-label', 'nombre de like photo')
         photoTitle.appendChild(numberLike)
@@ -53,7 +54,7 @@ function mediaListFactory(data) {
         numberLike.appendChild(pLike)
 
         const iheart = document.createElement('p')
-        iheart.classList.add('fa-solid')
+        iheart.classList.add('imgHeart')
         const pLikeHeart = document.createElement('img')
         pLikeHeart.setAttribute('src', likeheart)
         iheart.appendChild(pLikeHeart)
@@ -61,6 +62,11 @@ function mediaListFactory(data) {
 
         return photosPlusTitle
     }
+
+    
+      
+        
+    
 
     return { id, name, date, likes, price, title, image, video, photographerId, mediasCardDOM }
 }

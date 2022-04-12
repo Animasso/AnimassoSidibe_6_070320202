@@ -203,16 +203,15 @@ textarea {
   color: #901c1c;
   margin-right: 4px;
 }
-.fa-solid {
+.imgHeart {
   margin-top: 8px;
   cursor: pointer;
 }
-.fa-solid:hover {
-  color: #a16868;
-}
+
 .numberLike {
   display: flex;
   color: #901c1c;
+  cursor: pointer;
 }
 .photos-title img {
   width: 20px;
