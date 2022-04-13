@@ -1,11 +1,16 @@
 
 function likesPhotos() {
-    const clickLike= document.querySelectorAll('.imgHeart')
     const totalLikesPhoto =document.querySelector('.heart')
-    console.log(clickLike);
     console.log(totalLikesPhoto);
-    clickLike.addEventListener('click',()=>{
-    totalLikesPhoto ++
+    const clickLike= document.querySelectorAll('.imgHeart').forEach(item =>{
+        item.addEventListener('click',()=>{
+        totalLikesPhoto.innerHTML = parseInt(totalLikesPhoto.innerHTML)+1
+        })
+        
     })
+    
+    console.log(clickLike);
+    
+   
 };
 likesPhotos()
