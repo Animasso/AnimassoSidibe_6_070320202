@@ -13,6 +13,7 @@ function mediaListFactory(data) {
             const imgMain = document.createElement('img')
             imgMain.classList.add('portofolio')
             imgMain.setAttribute('src', mediasImages)
+            imgMain.setAttribute('onclick','displayLightBox()')
             imgMain.setAttribute('aria-label', 'photographe photo')
             imgMain.setAttribute('tabindex', 0)
             photosPlusTitle.appendChild(imgMain)
@@ -42,33 +43,38 @@ function mediaListFactory(data) {
 
         const numberLike = document.createElement('div')
         numberLike.classList.add('numberLike')
-        numberLike.setAttribute('onClick','likesPhotos()') 
+        //numberLike.setAttribute('onClick','likesPhotos()') 
         numberLike.setAttribute('tabindex', 0)
         numberLike.setAttribute('aria-label', 'nombre de like photo')
         photoTitle.appendChild(numberLike)
-
+        /*item.addEventListener('click',(e)=>{
+            //totalLikesPhoto.innerHTML = parseInt(totalLikesPhoto.innerHTML)+1
+            console.log(e.currentTarget);
+            })
+*/
         const pLike = document.createElement('p')
         pLike.classList.add('heart')
         pLike.textContent = likes
+        pLike.id = "heart-"+ id
         pLike.setAttribute('tabindex', 0)
         numberLike.appendChild(pLike)
 
         const iheart = document.createElement('p')
         iheart.classList.add('imgHeart')
+        iheart.id ="imgHeart-" +id
         const pLikeHeart = document.createElement('img')
         pLikeHeart.setAttribute('src', likeheart)
+  
         iheart.appendChild(pLikeHeart)
         numberLike.appendChild(iheart)
 
         return photosPlusTitle
-    }
-
-    
-      
-        
+    }  
     
 
     return { id, name, date, likes, price, title, image, video, photographerId, mediasCardDOM }
 }
 
+
+   
 

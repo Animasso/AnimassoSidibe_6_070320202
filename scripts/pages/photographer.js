@@ -37,7 +37,7 @@ async function init() {
     displayMedias(oneMedia)
     console.log(oneMedia);
     console.log(onePhotograph);
-    
+    likesPhotos()
     
 }
 
