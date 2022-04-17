@@ -223,7 +223,7 @@ textarea {
   justify-content: space-between;
   margin: 20px;
 }
-modal_LightBox {
+#modal_LightBox {
   background-color: #9e4646;
 }
 @media screen and (max-width: 890px) {

@@ -17,6 +17,7 @@ function displayMedias(medias){
     })
 }
 
+
 async function init() {
     const data = await fetch("https://raw.githubusercontent.com/Animasso/AnimassoSidibe_6_070320202/main/data/photographers.json")
     .then(response => response.json())
@@ -30,9 +31,14 @@ async function init() {
 
     const photographers = data.photographers
     const medias = data.media
-    const onePhotograph =photographers.find((photographer)=>photographer.id == idPhotographer)
+    const onePhotograph =photographers.find((photographer)=>photographer.id == idPhotographer) ;
     displayHeader(onePhotograph)
 
+    const spanName =document.getElementById('formName')
+    console.log(spanName);
+    const photographName = onePhotograph.name
+    spanName.textContent = photographName
+    
     const oneMedia = medias.filter((media)=> media.photographerId == idPhotographer)
     displayMedias(oneMedia)
     console.log(oneMedia);
@@ -40,6 +46,7 @@ async function init() {
     likesPhotos()
     
 }
+
 
 
 init()
