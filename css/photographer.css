@@ -147,7 +147,7 @@ label {
 }
 
 .modal header h2 {
-  font-size: 64px;
+  font-size: 50px;
   font-weight: normal;
 }
 
@@ -225,6 +225,13 @@ textarea {
 }
 #modal_LightBox {
   background-color: #9e4646;
+  display: none;
+  z-index: -2000;
+}
+@media screen and (max-width: 945px) {
+  .modal header h2 {
+    font-size: 40px;
+  }
 }
 @media screen and (max-width: 890px) {
   .secondHeader {
@@ -247,7 +254,6 @@ textarea {
   .infoPhotograph {
     margin: 0;
     margin-left: 50px;
-    width: fit-content;
   }
   #select {
     margin-left: 50px;
@@ -324,6 +330,13 @@ textarea {
   .price {
     margin-left: 0;
   }
+  .modal header h2 {
+    font-size: 30px;
+    font-weight: normal;
+  }
+  .closeForm {
+    font-size: 35px;
+  }
 }
 @media screen and (max-width: 525px) {
   .like_price {
@@ -340,6 +353,8 @@ textarea {
     flex-direction: column;
     height: auto;
     margin-left: 50px;
+    margin-right: 50px;
+    align-items: center;
   }
   .display-photos {
     display: flex;

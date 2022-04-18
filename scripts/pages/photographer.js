@@ -26,8 +26,7 @@ async function init() {
     let searchParams = new URLSearchParams(windowLocal);
     const idPhotographer = searchParams.get('id')
 
-    console.log(windowLocal);
-    console.log(idPhotographer);
+   
 
     const photographers = data.photographers
     const medias = data.media

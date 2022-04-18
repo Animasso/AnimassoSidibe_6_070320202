@@ -110,7 +110,7 @@ h1 {
 }
 
 @media screen and (max-width: 500px) {
-  header {
+  header.index {
     display: flex;
     flex-direction: column;
     justify-content: space-between;

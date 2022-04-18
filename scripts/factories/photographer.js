@@ -77,7 +77,7 @@ function photographerFactory(data) {
         imgHeader.setAttribute("aria-label", name)
         imgHeader.setAttribute("tabindex",0)
         imagephotgraph.appendChild(imgHeader)
-
+        
        return sectionHeader
     }
 
