@@ -224,10 +224,59 @@ textarea {
   margin: 20px;
 }
 #modal_LightBox {
-  background-color: #9e4646;
   display: none;
-  z-index: -2000;
 }
+.lightbox {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.lightbox_container {
+  background-color: #9e4646;
+  width: 1050px;
+  height: 900px;
+  border-radius: 5px;
+}
+.lightbox_prev {
+  background: url(/assets/icons/chevronLeft.png) no-repeat;
+  width: 40px;
+  height: 40px;
+  border: none;
+  position: fixed;
+  top: 75%;
+  right: 0;
+  margin-top: -20px;
+  margin-left: 140px;
+  z-index: 20;
+  cursor: pointer;
+  right: auto;
+  left: 0;
+}
+
+.lightbox_next {
+  background: url(/assets/icons/chevronRight.png) no-repeat;
+  width: 40px;
+  height: 40px;
+  border: none;
+  position: fixed;
+  top: 75%;
+  right: 0;
+  margin-right: 130px;
+  margin-top: -20px;
+  z-index: 20;
+  cursor: pointer;
+}
+.lightbox_close {
+  background: url(/assets/icons/closeImg.png) no-repeat;
+  width: 40px;
+  height: 40px;
+  border: none;
+  position: fixed;
+  right: 130px;
+  top: 140px;
+}
+
 @media screen and (max-width: 945px) {
   .modal header h2 {
     font-size: 40px;

@@ -6,9 +6,13 @@ function displayLightBox() {
     footer.style.display ="none"
 }
 
-function closeLightBox() {
+
     const modalLightBox = document.getElementById("modal_LightBox");
-    modalLightBox.style.display = "none";
-    main.style.display = "block"
-    footer.style.display ="block"
-}
+    const lightboxClose =document.querySelector('.lightbox_close')
+    lightboxClose.addEventListener('click',()=>{
+        modalLightBox.style.display = "none";
+        main.style.display = "block"
+        footer.style.display ="block"
+    })
+    
+

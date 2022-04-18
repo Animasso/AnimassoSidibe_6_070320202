@@ -26,12 +26,13 @@ async function init() {
     let searchParams = new URLSearchParams(windowLocal);
     const idPhotographer = searchParams.get('id')
 
-   
+    console.log(windowLocal);
+    console.log(idPhotographer);
 
     const photographers = data.photographers
     const medias = data.media
     const onePhotograph =photographers.find((photographer)=>photographer.id == idPhotographer) ;
-    displayHeader(onePhotograph)
+   console.log(onePhotograph);
 
     const spanName =document.getElementById('formName')
     console.log(spanName);
@@ -43,6 +44,8 @@ async function init() {
     console.log(oneMedia);
     console.log(onePhotograph);
     likesPhotos()
+    displayHeader(onePhotograph)
+    
     
 }
 

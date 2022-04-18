@@ -12,19 +12,18 @@ function lightBoxCardDom(){
     const buttonLeft = document.createElement('button')
     buttonLeft.classList.add('lightbox_prev')
     buttonLeft.setAttribute('aria-label','previous image')
-    buttonLeft.textContent ='previous image'
+    
     lightbox.appendChild(buttonLeft)
 
     const buttonRight = document.createElement('button')
     buttonRight.classList.add('lightbox_next')
-    buttonRight.textContent ='next image'
+   
     buttonRight.setAttribute('aria-label','next image')
     lightbox.appendChild(buttonRight)
 
     const buttonClose = document.createElement('button')
     buttonClose.classList.add('lightbox_close')
     buttonClose.setAttribute('aria-label','close lightbox')
-    buttonClose.textContent ='close'
     lightbox.appendChild(buttonClose)
 
     const containerLightBox = document.createElement('div')
