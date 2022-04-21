@@ -227,14 +227,18 @@ textarea {
   display: none;
 }
 .lightbox {
+  width: 100%;
+
   display: flex;
   justify-content: center;
   margin-top: 50px;
+  align-content: center;
+  align-items: center;
 }
 
 .lightbox_container {
   background-color: #9e4646;
-  width: 1050px;
+  width: 65%;
   height: 900px;
   border-radius: 5px;
 }
@@ -243,15 +247,10 @@ textarea {
   width: 40px;
   height: 40px;
   border: none;
-  position: fixed;
-  top: 75%;
-  right: 0;
-  margin-top: -20px;
-  margin-left: 140px;
-  z-index: 20;
+  position: absolute;
   cursor: pointer;
-  right: auto;
-  left: 0;
+  left: 14%;
+  z-index: 20;
 }
 
 .lightbox_next {
@@ -259,11 +258,8 @@ textarea {
   width: 40px;
   height: 40px;
   border: none;
-  position: fixed;
-  top: 75%;
-  right: 0;
-  margin-right: 130px;
-  margin-top: -20px;
+  position: absolute;
+  right: 14%;
   z-index: 20;
   cursor: pointer;
 }
@@ -272,9 +268,9 @@ textarea {
   width: 40px;
   height: 40px;
   border: none;
-  position: fixed;
-  right: 130px;
-  top: 140px;
+  position: absolute;
+  top: 16%;
+  right: 14%;
 }
 
 @media screen and (max-width: 945px) {

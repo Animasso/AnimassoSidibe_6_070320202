@@ -43,15 +43,10 @@ function mediaListFactory(data) {
 
         const numberLike = document.createElement('div')
         numberLike.classList.add('numberLike')
-        //numberLike.setAttribute('onClick','likesPhotos()') 
         numberLike.setAttribute('tabindex', 0)
         numberLike.setAttribute('aria-label', 'nombre de like photo')
         photoTitle.appendChild(numberLike)
-        /*item.addEventListener('click',(e)=>{
-            //totalLikesPhoto.innerHTML = parseInt(totalLikesPhoto.innerHTML)+1
-            console.log(e.currentTarget);
-            })
-*/
+      
         const pLike = document.createElement('p')
         pLike.classList.add('heart')
         pLike.textContent = likes

@@ -8,7 +8,6 @@ function displayHeader(photographer){
 
 }
 function displayMedias(medias){
-
     medias.forEach((oneMedia)=>{
         const displayPhotos = document.querySelector('.display-photos')
         const mediasModel = mediaListFactory(oneMedia)
@@ -16,7 +15,6 @@ function displayMedias(medias){
         displayPhotos.appendChild(mediasCardDOM)
     })
 }
-
 
 async function init() {
     const data = await fetch("https://raw.githubusercontent.com/Animasso/AnimassoSidibe_6_070320202/main/data/photographers.json")
@@ -36,15 +34,20 @@ async function init() {
 
     const spanName =document.getElementById('formName')
     console.log(spanName);
-    const photographName = onePhotograph.name
-    spanName.textContent = photographName
+    if (onePhotograph){
+        const photographName = onePhotograph.name
+        spanName.textContent = photographName
+        displayHeader(onePhotograph)
+    }
+   
     
     const oneMedia = medias.filter((media)=> media.photographerId == idPhotographer)
     displayMedias(oneMedia)
     console.log(oneMedia);
     console.log(onePhotograph);
+    if(typeof( likesPhotos )===typeof(Function))
     likesPhotos()
-    displayHeader(onePhotograph)
+    
     
     
 }

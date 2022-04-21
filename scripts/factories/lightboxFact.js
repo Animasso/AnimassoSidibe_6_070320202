@@ -1,3 +1,16 @@
+function lightBoxFactory(data){
+    const { id, name, date, likes, price, title, image, video, photographerId } = data;
+    const mediasImage = `assets/photographers/${photographerId}/${image}`;
+    const mediasVideo = `assets/photographers/${photographerId}/${video}`
+
+
+
+
+}
+
+
+
+
 function lightBoxCardDom(){
   
     const modalLightBox = document.getElementById('modal_LightBox')
@@ -30,11 +43,19 @@ function lightBoxCardDom(){
     containerLightBox.classList.add('lightbox_container')
     lightbox.appendChild(containerLightBox)
 
-    const imgContainer = document.createElement('img')
-    imgContainer.classList.add('img_container')
-
-    imgContainer.setAttribute('src','')
-    containerLightBox.appendChild(imgContainer)
+        const imgContainer = document.createElement('img')
+        imgContainer.classList.add('img_container')
+        imgContainer.setAttribute('src','')
+        containerLightBox.appendChild(imgContainer)
+    /*}else{
+        const videoContainer = document.createElement('video')
+        portofolioVideo.setAttribute('src', mediasVideo,)
+        portofolioVideo.setAttribute('type', 'video/mp4',)
+        containerLightBox.appendChild(videoContainer)
+    }
+    
+*/
+    
 
 }
 lightBoxCardDom()
