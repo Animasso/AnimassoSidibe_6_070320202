@@ -3,7 +3,6 @@ function displayHeader(photographer){
     const banner = document.querySelector('.photographHeader')
     const photographerModel = photographerFactory(photographer);
     const userHeaderDOM = photographerModel.getUserHeaderDOM();
-    /*banner.appendChild(userHeaderDOM)*/
     banner.appendChild(userHeaderDOM)
 
 }
@@ -15,6 +14,33 @@ function displayMedias(medias){
         displayPhotos.appendChild(mediasCardDOM)
     })
 }
+
+/*function displayBySort(medias){
+    const displayPhotos = document.querySelector('.display-photos')
+    document.getElementById(filterSelect).addEventListener('change',(e)=>{
+        if(e.target.value === "popularity"){
+            medias.forEach((oneMedias)=>{
+                oneMedias.sort((a,b)=>{
+                return a.likes - b.likes
+                })
+            })
+        }
+    })
+    
+}
+*/
+
+
+
+
+function displayLightbox(oneMedia){
+    const modalLightBox = document.getElementById('modalLightBox')
+    const lightboxModel = lightBoxFactory(oneMedia)
+    const lightBoxCardDOM =lightboxModel.lightBoxCardDOM()
+    modalLightBox.appendChild(lightBoxCardDOM)
+
+}
+
 
 async function init() {
     const data = await fetch("https://raw.githubusercontent.com/Animasso/AnimassoSidibe_6_070320202/main/data/photographers.json")
@@ -31,7 +57,7 @@ async function init() {
     const medias = data.media
     const onePhotograph =photographers.find((photographer)=>photographer.id == idPhotographer) ;
    console.log(onePhotograph);
-
+//afficher le le nom du photographe dans le formulaire
     const spanName =document.getElementById('formName')
     console.log(spanName);
     if (onePhotograph){
@@ -39,19 +65,31 @@ async function init() {
         spanName.textContent = photographName
         displayHeader(onePhotograph)
     }
-   
-    
+//obtenir les medias d'un photographe
     const oneMedia = medias.filter((media)=> media.photographerId == idPhotographer)
+ //pour obtenir le nombre total de like d'un photographe
+ if(onePhotograph){
+    let arrayOfLikes =[]
+    oneMedia.forEach(media=>{
+        arrayOfLikes.push(media.likes)
+        console.log(arrayOfLikes);
+    })
+    const addition =(previousValue,currentValue)=>previousValue+currentValue
+         let totalLikesMedias =arrayOfLikes.reduce(addition)
+         console.log(totalLikesMedias);
+ }
+    
+
     displayMedias(oneMedia)
     console.log(oneMedia);
     console.log(onePhotograph);
     if(typeof( likesPhotos )===typeof(Function))
     likesPhotos()
-    
+    if(onePhotograph){
+        displayLightbox()
+    }
     
     
 }
-
-
-
 init()
+

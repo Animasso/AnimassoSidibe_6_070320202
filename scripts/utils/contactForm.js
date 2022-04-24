@@ -1,6 +1,6 @@
 const main = document.getElementById('mainPhotograph')
 const footer = document.querySelector('.like_price')
-const lightBox = document.getElementById('modal_LightBox')
+const lightBox = document.getElementById('modalLightBox')
 const form =document.getElementById('contact_photograph')
 const firstName= document.getElementById('first_name');
 const lastName = document.getElementById('last_name');
@@ -43,14 +43,14 @@ function sendForm(){
        
     //gestion erreur premon
         if ( firstNameValue.length < 2) {
-        firstError.textContent ="saisir au moins 2 caractère"
-        firstError.style.color ="red"
           firstError.style.display = "block";
+          firstError.textContent ="saisir au moins 2 caractère"
+          firstError.style.color ="red"
           formIsValid =false
         }else{
           firstError.style.display = "none";
         }
-    
+        console.log(firstNameValue);
     //gestion erreur nom
         if ( lastNameValue.length < 2 ) {
         lastError.textContent ="saisir au moins 2 caractère"
@@ -68,17 +68,15 @@ function sendForm(){
         }else{
           emailError.style.display = "none";
         }
-    
     //gestion erreur message
         if (messageValue.length <= 4 ) {
-        messageError.textContent ="Veuillez saisir un message plus long"
+          messageError.textContent ="Veuillez saisir un message plus long"
           messageError.style.display ="block"
           formIsValid = false
         }else{
           messageError.style.display = "none";
         }
-
-        console.log(firstNameValue);
+       
         console.log(lastNameValue);
         console.log(emailValue);
         console.log(messageValue);
@@ -86,16 +84,12 @@ function sendForm(){
     
     //si il n'y a aucune erreur  la fonction est appelée
         if(formIsValid === true){
-            
-          formReset(e)
-          
+          sendForm()
+          main.style.display = "block"
         }
       })
 
-      function formReset(e){
-        e.preventDefault()
-        main.style.display = "block"
-      }
+    
 
 
 }

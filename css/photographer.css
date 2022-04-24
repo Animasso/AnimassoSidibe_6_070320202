@@ -57,7 +57,7 @@ label {
   margin-right: 20px;
   font-weight: bold;
 }
-#filter-select {
+#filterSelect {
   border: none;
   background-color: #901c1c;
   border-radius: 5px;
@@ -68,7 +68,7 @@ label {
   height: 70px;
   padding: 11px 15px;
 }
-#filter-select:hover {
+#filterSelect:hover {
   color: #000000;
   background-color: #db8876;
 }
@@ -223,7 +223,7 @@ textarea {
   justify-content: space-between;
   margin: 20px;
 }
-#modal_LightBox {
+#modalLightBox {
   display: none;
 }
 .lightbox {

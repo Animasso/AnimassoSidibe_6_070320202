@@ -32,10 +32,10 @@ function photographerFactory(data) {
         return (article);
     }
     function getUserHeaderDOM() {
-    const banner = document.querySelector('.photographHeader')
+  
         const sectionHeader = document.createElement('article')
         sectionHeader.classList.add('infoPhotograph')
-        banner.appendChild(sectionHeader)
+        
 
         const localisation = document.createElement('div')
         localisation.classList.add('name_localisation')

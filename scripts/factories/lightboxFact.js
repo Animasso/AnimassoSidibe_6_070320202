@@ -1,61 +1,62 @@
 function lightBoxFactory(data){
-    const { id, name, date, likes, price, title, image, video, photographerId } = data;
+    const { title, image, video, photographerId } = data;
     const mediasImage = `assets/photographers/${photographerId}/${image}`;
     const mediasVideo = `assets/photographers/${photographerId}/${video}`
 
-
-
-
-}
-
-
-
-
-function lightBoxCardDom(){
+    function lightBoxCardDOM(){
   
-    const modalLightBox = document.getElementById('modal_LightBox')
-    console.log(modalLightBox);
-    const lightbox =document.createElement('article')
-    lightbox.classList.add('lightbox')
-    lightbox.setAttribute('role','dialog')
-    lightbox.setAttribute('aria-hidden', 'true')
-    lightbox.setAttribute('aria-label','image closeup view')
-    modalLightBox.appendChild(lightbox)
-
-    const buttonLeft = document.createElement('button')
-    buttonLeft.classList.add('lightbox_prev')
-    buttonLeft.setAttribute('aria-label','previous image')
+        
+        const lightbox =document.createElement('article')
+        lightbox.classList.add('lightbox')
+        lightbox.setAttribute('role','dialog')
+        lightbox.setAttribute('aria-hidden', 'true')
+        lightbox.setAttribute('aria-label','image closeup view')
+       
+        
+        const buttonLeft = document.createElement('button')
+        buttonLeft.classList.add('lightbox_prev')
+        buttonLeft.setAttribute('aria-label','previous image')
+        
+        lightbox.appendChild(buttonLeft)
     
-    lightbox.appendChild(buttonLeft)
-
-    const buttonRight = document.createElement('button')
-    buttonRight.classList.add('lightbox_next')
-   
-    buttonRight.setAttribute('aria-label','next image')
-    lightbox.appendChild(buttonRight)
-
-    const buttonClose = document.createElement('button')
-    buttonClose.classList.add('lightbox_close')
-    buttonClose.setAttribute('aria-label','close lightbox')
-    lightbox.appendChild(buttonClose)
-
-    const containerLightBox = document.createElement('div')
-    containerLightBox.classList.add('lightbox_container')
-    lightbox.appendChild(containerLightBox)
-
-        const imgContainer = document.createElement('img')
-        imgContainer.classList.add('img_container')
-        imgContainer.setAttribute('src','')
-        containerLightBox.appendChild(imgContainer)
-    /*}else{
-        const videoContainer = document.createElement('video')
-        portofolioVideo.setAttribute('src', mediasVideo,)
-        portofolioVideo.setAttribute('type', 'video/mp4',)
-        containerLightBox.appendChild(videoContainer)
+        const buttonRight = document.createElement('button')
+        buttonRight.classList.add('lightbox_next')
+       
+        buttonRight.setAttribute('aria-label','next image')
+        lightbox.appendChild(buttonRight)
+    
+        const buttonClose = document.createElement('button')
+        buttonClose.classList.add('lightbox_close')
+        buttonClose.setAttribute('aria-label','close lightbox')
+        lightbox.appendChild(buttonClose)
+    
+        const containerLightBox = document.createElement('div')
+        containerLightBox.classList.add('lightbox_container')
+        lightbox.appendChild(containerLightBox)
+    
+            const imgContainer = document.createElement('img')
+            imgContainer.classList.add('img_container')
+            imgContainer.setAttribute('src',mediasImage)
+            containerLightBox.appendChild(imgContainer)
+            
+        /*}else{
+            const videoContainer = document.createElement('video')
+            portofolioVideo.setAttribute('src', mediasVideo,)
+            portofolioVideo.setAttribute('type', 'video/mp4',)
+            containerLightBox.appendChild(videoContainer)
+        }
+        
+    */
+        return lightbox
+    
     }
-    
-*/
-    
 
+    return { title, image, video, photographerId, lightBoxCardDOM }
 }
-lightBoxCardDom()
+
+
+
+
+
+
+

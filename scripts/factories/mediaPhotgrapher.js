@@ -13,7 +13,7 @@ function mediaListFactory(data) {
             const imgMain = document.createElement('img')
             imgMain.classList.add('portofolio')
             imgMain.setAttribute('src', mediasImages)
-            imgMain.setAttribute('onclick','displayLightBox()')
+            imgMain.setAttribute('onclick','openLightBox()')
             imgMain.setAttribute('aria-label', 'photographe photo')
             imgMain.setAttribute('tabindex', 0)
             photosPlusTitle.appendChild(imgMain)
