@@ -1,10 +1,9 @@
 function lightBoxFactory(data){
-    const { title, image, video, photographerId } = data;
+    const {title, url} = data;
     const mediasImage = `assets/photographers/${photographerId}/${image}`;
     const mediasVideo = `assets/photographers/${photographerId}/${video}`
 
     function lightBoxCardDOM(){
-  
         
         const lightbox =document.createElement('article')
         lightbox.classList.add('lightbox')
@@ -34,24 +33,27 @@ function lightBoxFactory(data){
         containerLightBox.classList.add('lightbox_container')
         lightbox.appendChild(containerLightBox)
     
-            const imgContainer = document.createElement('img')
-            imgContainer.classList.add('img_container')
-            imgContainer.setAttribute('src',mediasImage)
-            containerLightBox.appendChild(imgContainer)
-            
+        const imgContainer = document.createElement('img')
+        imgContainer.classList.add('img_container')
+        imgContainer.setAttribute('src',mediasImage)
+        containerLightBox.appendChild(imgContainer)
+        
+        const titleMedia = document.createElement('h2')
+        titleMedia.classList.add('mediatitle')
+        titleMedia.textContent = title
+        containerLightBox.appendChild(titleMedia)
         /*}else{
             const videoContainer = document.createElement('video')
             portofolioVideo.setAttribute('src', mediasVideo,)
             portofolioVideo.setAttribute('type', 'video/mp4',)
             containerLightBox.appendChild(videoContainer)
         }
-        
     */
         return lightbox
     
     }
 
-    return { title, image, video, photographerId, lightBoxCardDOM }
+    return {title, url, lightBoxCardDOM }
 }
 
 

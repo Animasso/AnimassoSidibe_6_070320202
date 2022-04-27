@@ -4,26 +4,30 @@ function openLightBox() {
 	modalLightBox.style.display = "block";
     main.style.display = "none"
     footer.style.display ="none"
+    };
+
     const srcMedia=[] 
     document.querySelectorAll('.portofolio').forEach(item=>{
-        item.addEventListener('click',(e) =>{
-            e.preventDefault()
-            const src = e.currentTarget 
-            console.log(src);
-        }) 
      if (item.src) 
         srcMedia.push(item.src)
         else{
             srcMedia.push(item.firstChild.src);
             }
+           item.addEventListener('click',(e) =>{
+              e.preventDefault()
+              lightBoxCardDOM(e.currentTarget.getAttribute('src',srcMedia))
+                for (let i= 0; i < srcMedia.length; i++) {
+                    const src = srcMedia[i];
+                    src.indexOf(e.target)
+                    console.log(src);
+                }
+                
+            })
     })
- 
+
     console.log(srcMedia);
 
 
-
-   
-    }
     
   /*  const modalLightBox = document.getElementById("modalLightBox");
     const lightboxClose =document.querySelector('.lightbox_close')

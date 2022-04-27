@@ -29,18 +29,24 @@ function displayMedias(medias){
     
 }
 */
+function displayFooter(photographer){
+        const footer =document.querySelector('.like_price')
+        console.log(footer);
+        const footerModel =footerFactory(photographer)
+        const footerCardDOM =footerModel.footerCardDOM()
+        footer.appendChild(footerCardDOM) 
+}
 
 
 
-
-function displayLightbox(oneMedia){
+function displayLightbox(data){
+    
     const modalLightBox = document.getElementById('modalLightBox')
-    const lightboxModel = lightBoxFactory(oneMedia)
+    const lightboxModel = lightBoxFactory(data)
     const lightBoxCardDOM =lightboxModel.lightBoxCardDOM()
     modalLightBox.appendChild(lightBoxCardDOM)
 
 }
-
 
 async function init() {
     const data = await fetch("https://raw.githubusercontent.com/Animasso/AnimassoSidibe_6_070320202/main/data/photographers.json")
@@ -73,21 +79,31 @@ async function init() {
     oneMedia.forEach(media=>{
         arrayOfLikes.push(media.likes)
         console.log(arrayOfLikes);
+        
     })
     const addition =(previousValue,currentValue)=>previousValue+currentValue
-         let totalLikesMedias =arrayOfLikes.reduce(addition)
-         console.log(totalLikesMedias);
+    const totalLikesMedias =arrayOfLikes.reduce(addition)
+    console.log(totalLikesMedias);
+    const spanLike = document.querySelector('.likes-Footer')
+    console.log(spanLike);
+    const totalLikesFooter = parseInt(totalLikesMedias)
+    console.log(totalLikesFooter);
+    //spanLike.textContent = totalLikesFooter
+    
  }
     
 
     displayMedias(oneMedia)
+   
+   
     console.log(oneMedia);
     console.log(onePhotograph);
     if(typeof( likesPhotos )===typeof(Function))
     likesPhotos()
     if(onePhotograph){
-        displayLightbox()
+        displayFooter(onePhotograph)
     }
+   
     
     
 }

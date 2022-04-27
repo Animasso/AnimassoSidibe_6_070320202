@@ -223,6 +223,9 @@ textarea {
   justify-content: space-between;
   margin: 20px;
 }
+.sticky_footer img {
+  width: 20px;
+}
 #modalLightBox {
   display: none;
 }
