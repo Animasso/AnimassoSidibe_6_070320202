@@ -1,6 +1,6 @@
 function footerFactory(data) {
     const { likes, price } = data;
-    const likeheart = `assets/icons/heart.png`
+    const likeheart = `assets/icons/heartBlack.png`
     
     
 function footerCardDOM(){
@@ -11,6 +11,7 @@ stickyFooter.classList.add('sticky_footer')
 const likeFooter = document.createElement('div')
 likeFooter.classList.add('likeHeart')
 stickyFooter.appendChild(likeFooter)
+
 const spanLike = document.createElement('div')
 spanLike.classList.add('likes-Footer')
 spanLike.setAttribute('tabindex',0)
@@ -28,7 +29,7 @@ const spanPrice = document.createElement('span')
 spanPrice.classList.add('price')
 spanPrice.setAttribute('tabindex',0)
 spanPrice.setAttribute('aria-label','prix')
-spanPrice.textContent= price +''+ '/par jour'
+spanPrice.textContent= price +'€' +''+ '/jour'
 stickyFooter.appendChild(spanPrice)
 
 return stickyFooter

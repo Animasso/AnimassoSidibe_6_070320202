@@ -29,20 +29,14 @@ function displayMedias(medias){
     
 }
 */
-function displayFooter(photographer){
-        const footer =document.querySelector('.like_price')
-        console.log(footer);
-        const footerModel =footerFactory(photographer)
-        const footerCardDOM =footerModel.footerCardDOM()
-        footer.appendChild(footerCardDOM) 
-}
 
 
 
-function displayLightbox(data){
+
+function displayLightbox(oneMedia){
     
     const modalLightBox = document.getElementById('modalLightBox')
-    const lightboxModel = lightBoxFactory(data)
+    const lightboxModel = lightBoxFactory(oneMedia)
     const lightBoxCardDOM =lightboxModel.lightBoxCardDOM()
     modalLightBox.appendChild(lightBoxCardDOM)
 
@@ -73,35 +67,39 @@ async function init() {
     }
 //obtenir les medias d'un photographe
     const oneMedia = medias.filter((media)=> media.photographerId == idPhotographer)
- //pour obtenir le nombre total de like d'un photographe
- if(onePhotograph){
+ 
+    function displayFooter(photographer){
+    const footer =document.querySelector('.like_price')
+    console.log(footer);
+    const footerModel =footerFactory(photographer)
+    const footerCardDOM =footerModel.footerCardDOM()
+    footer.appendChild(footerCardDOM)
+    //pour obtenir le nombre total de like d'un photographe
+    const spanLike = document.querySelector('.likes-Footer')
+    console.log(spanLike);
+    if(onePhotograph){
     let arrayOfLikes =[]
     oneMedia.forEach(media=>{
         arrayOfLikes.push(media.likes)
-        console.log(arrayOfLikes);
-        
+        console.log(arrayOfLikes); 
     })
     const addition =(previousValue,currentValue)=>previousValue+currentValue
     const totalLikesMedias =arrayOfLikes.reduce(addition)
     console.log(totalLikesMedias);
-    const spanLike = document.querySelector('.likes-Footer')
-    console.log(spanLike);
-    const totalLikesFooter = parseInt(totalLikesMedias)
-    console.log(totalLikesFooter);
-    //spanLike.textContent = totalLikesFooter
-    
+    spanLike.innerHTML = totalLikesMedias
  }
+
+}
     
 
     displayMedias(oneMedia)
-   
-   
     console.log(oneMedia);
     console.log(onePhotograph);
     if(typeof( likesPhotos )===typeof(Function))
     likesPhotos()
     if(onePhotograph){
         displayFooter(onePhotograph)
+        displayLightbox(oneMedia)
     }
    
     
