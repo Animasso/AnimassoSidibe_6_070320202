@@ -3,6 +3,7 @@ function mediaListFactory(data) {
 
     const mediasImages = `assets/photographers/${photographerId}/${image}`;
     const mediasVideos = `assets/photographers/${photographerId}/${video}`
+    console.log(mediasImages);
     const likeheart = `assets/icons/heart.png`
     function mediasCardDOM() {
 

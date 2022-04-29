@@ -1,7 +1,8 @@
 function lightBoxFactory(data){
     const {title, url} = data;
-   // const mediasImage = `assets/photographers/${photographerId}/${image}`;
+    //const mediasImage = `assets/photographers/${photographerId}/${url}`;
     //const mediasVideo = `assets/photographers/${photographerId}/${video}`
+    
 
     function lightBoxCardDOM(){
         
@@ -35,7 +36,7 @@ function lightBoxFactory(data){
     
         const imgContainer = document.createElement('img')
         imgContainer.classList.add('img_container')
-        imgContainer.setAttribute('src','')
+        imgContainer.setAttribute('src',url)
         containerLightBox.appendChild(imgContainer)
         
         const titleMedia = document.createElement('h2')

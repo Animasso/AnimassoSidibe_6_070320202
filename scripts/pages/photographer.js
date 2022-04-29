@@ -33,10 +33,10 @@ function displayMedias(medias){
 
 
 
-function displayLightbox(oneMedia){
+function displayLightbox(url){
     
     const modalLightBox = document.getElementById('modalLightBox')
-    const lightboxModel = lightBoxFactory(oneMedia)
+    const lightboxModel = lightBoxFactory(url)
     const lightBoxCardDOM =lightboxModel.lightBoxCardDOM()
     modalLightBox.appendChild(lightBoxCardDOM)
 
@@ -81,8 +81,8 @@ async function init() {
     let arrayOfLikes =[]
     oneMedia.forEach(media=>{
         arrayOfLikes.push(media.likes)
-        console.log(arrayOfLikes); 
     })
+    console.log(arrayOfLikes); 
     const addition =(previousValue,currentValue)=>previousValue+currentValue
     const totalLikesMedias =arrayOfLikes.reduce(addition)
     console.log(totalLikesMedias);
@@ -99,7 +99,7 @@ async function init() {
     likesPhotos()
     if(onePhotograph){
         displayFooter(onePhotograph)
-        displayLightbox(oneMedia)
+        displayLightbox(url)
     }
    
     
