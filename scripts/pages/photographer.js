@@ -15,20 +15,26 @@ function displayMedias(medias){
     })
 }
 
-/*function displayBySort(medias){
-    const displayPhotos = document.querySelector('.display-photos')
-    document.getElementById(filterSelect).addEventListener('change',(e)=>{
-        if(e.target.value === "popularity"){
-            medias.forEach((oneMedias)=>{
-                oneMedias.sort((a,b)=>{
+function displayBySort(oneMedia){
+   const filterMedias= document.getElementById('filterSelect')
+   console.log(filterMedias);
+   filterMedias.addEventListener('change',(e)=>{
+        if(e.target.value === "popularité"){
+                oneMedia.sort((a,b)=>{
                 return a.likes - b.likes
                 })
-            })
+        } 
+        if(e.target.value === 'Date'){
+            oneMedia.sort(function(a, b) {
+            var c = new Date(a.date);
+            var d = new Date(b.date);
+            return c-d;
+            });
         }
     })
     
 }
-*/
+
 
 
 
@@ -67,7 +73,9 @@ async function init() {
     }
 //obtenir les medias d'un photographe
     const oneMedia = medias.filter((media)=> media.photographerId == idPhotographer)
- 
+    console.log(oneMedia);
+    
+  
     function displayFooter(photographer){
     const footer =document.querySelector('.like_price')
     console.log(footer);
@@ -93,6 +101,7 @@ async function init() {
     
 
     displayMedias(oneMedia)
+    displayBySort(oneMedia)
     console.log(oneMedia);
     console.log(onePhotograph);
     if(typeof( likesPhotos )===typeof(Function))
