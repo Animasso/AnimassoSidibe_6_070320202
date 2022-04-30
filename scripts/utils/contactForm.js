@@ -76,7 +76,6 @@ function sendForm(){
         }else{
           messageError.style.display = "none";
         }
-       
         console.log(lastNameValue);
         console.log(emailValue);
         console.log(messageValue);
@@ -84,12 +83,16 @@ function sendForm(){
     
     //si il n'y a aucune erreur  la fonction est appelée
         if(formIsValid === true){
-          sendForm()
-          main.style.display = "block"
+          sendForm(e)
+          const modal = document.getElementById("contact_modal");
+    modal.style.display = "none";
+    main.style.display = "block"
+    footer.style.display ="block"
+    lightBox.style.display ='none'
+          window.location = "index.html";
         }
       })
 
-    
 
 
 }
