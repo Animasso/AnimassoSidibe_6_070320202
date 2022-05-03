@@ -57,7 +57,7 @@ label {
   margin-right: 20px;
   font-weight: bold;
 }
-#filterSelect {
+#filter-select {
   border: none;
   background-color: #901c1c;
   border-radius: 5px;
@@ -68,7 +68,7 @@ label {
   height: 70px;
   padding: 11px 15px;
 }
-#filterSelect:hover {
+#filter-select:hover {
   color: #000000;
   background-color: #db8876;
 }

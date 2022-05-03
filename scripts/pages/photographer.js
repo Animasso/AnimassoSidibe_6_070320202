@@ -15,38 +15,14 @@ function displayMedias(medias){
     })
 }
 
-function displayBySort(oneMedia){
-   const filterMedias= document.getElementById('filterSelect')
-   console.log(filterMedias);
-   filterMedias.addEventListener('change',(e)=>{
-        if(e.target.value === "popularité"){
-                oneMedia.sort((a,b)=>{
-                return a.likes - b.likes
-                })
-        } 
-        if(e.target.value === 'Date'){
-            oneMedia.sort(function(a, b) {
-            var c = new Date(a.date);
-            var d = new Date(b.date);
-            return c-d;
-            });
-        }
-    })
-    
-}
-
-
-
-
-
-function displayLightbox(url){
+/*function displayLightbox(url){
     
     const modalLightBox = document.getElementById('modalLightBox')
     const lightboxModel = lightBoxFactory(url)
     const lightBoxCardDOM =lightboxModel.lightBoxCardDOM()
     modalLightBox.appendChild(lightBoxCardDOM)
 
-}
+}*/
 
 async function init() {
     const data = await fetch("https://raw.githubusercontent.com/Animasso/AnimassoSidibe_6_070320202/main/data/photographers.json")
@@ -74,8 +50,38 @@ async function init() {
 //obtenir les medias d'un photographe
     const oneMedia = medias.filter((media)=> media.photographerId == idPhotographer)
     console.log(oneMedia);
+
+//obtenir les medias filtrer
+if (onePhotograph) {
+    const filterMedias= document.getElementById('filter-select')
+    filterMedias.addEventListener("click", function(e) {
+        var options = filterMedias.querySelectorAll("option");
+        console.log(options);
+        var valueSort = e.target.value;
+        console.log(valueSort);
+    });
     
-  
+    console.log(filterMedias);
+    filterMedias.addEventListener('change',(e)=>{
+         if(e.target.value === "Popularité"){
+             oneMedia.sort((a,b)=>{
+                 return a.likes - b.likes
+                 })
+         } 
+         if(e.target.value === 'Date'){
+             oneMedia.sort(function(a, b) {
+             var c = new Date(a.date);
+             var d = new Date(b.date);
+             return c-d;
+             });
+         }
+         if(e.target.value === 'Titre'){
+             return oneMedia.sort((a, b) => a.title.localeCompare(b.title))
+         }
+     })
+}
+   
+//mise en place du footer 
     function displayFooter(photographer){
     const footer =document.querySelector('.like_price')
     console.log(footer);
@@ -101,14 +107,14 @@ async function init() {
     
 
     displayMedias(oneMedia)
-    displayBySort(oneMedia)
     console.log(oneMedia);
     console.log(onePhotograph);
     if(typeof( likesPhotos )===typeof(Function))
     likesPhotos()
     if(onePhotograph){
         displayFooter(onePhotograph)
-        displayLightbox(url)
+        //displayLightbox(url)
+        
     }
    
     

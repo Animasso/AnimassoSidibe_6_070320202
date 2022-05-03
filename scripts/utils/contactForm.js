@@ -10,6 +10,7 @@ const firstError = document.getElementById('errorFirst');
 const lastError = document.getElementById('errorLast');
 const emailError = document.getElementById('errorEmail');
 const messageError = document.getElementById('errorMessage');
+const modal = document.getElementById("contact_modal");
 
 
 function displayModal() {
@@ -29,6 +30,12 @@ function closeModal() {
     lightBox.style.display ='none'
 
 }
+document.addEventListener('keydown', (event) => {  
+  if (event.key === 'Escape') {
+        closeModal()
+  }
+});
+
 
 function sendForm(){
     form.addEventListener('submit',(e) => {
@@ -82,18 +89,12 @@ function sendForm(){
     
     
     //si il n'y a aucune erreur  la fonction est appelée
-        if(formIsValid === true){
-          sendForm(e)
-          const modal = document.getElementById("contact_modal");
-    modal.style.display = "none";
-    main.style.display = "block"
-    footer.style.display ="block"
-    lightBox.style.display ='none'
-          window.location = "index.html";
-        }
+    if(formIsValid === true){
+      sendForm(e);
+    }
       })
 
-
+     
 
 }
 
