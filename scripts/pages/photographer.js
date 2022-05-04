@@ -8,21 +8,23 @@ function displayHeader(photographer){
 }
 function displayMedias(medias){
     medias.forEach((oneMedia)=>{
-        const displayPhotos = document.querySelector('.display-photos')
+        const displayPhotos = document.getElementById('display-photos')
         const mediasModel = mediaListFactory(oneMedia)
         const mediasCardDOM =mediasModel.mediasCardDOM()
         displayPhotos.appendChild(mediasCardDOM)
     })
+    lightbox.init()
 }
 
-/*function displayLightbox(url){
-    
-    const modalLightBox = document.getElementById('modalLightBox')
-    const lightboxModel = lightBoxFactory(url)
-    const lightBoxCardDOM =lightboxModel.lightBoxCardDOM()
-    modalLightBox.appendChild(lightBoxCardDOM)
 
-}*/
+
+
+
+function deleteChild(elementId) {
+    var e = document.getElementById('display-photos');
+    e.innerHTML =''
+   
+}
 
 async function init() {
     const data = await fetch("https://raw.githubusercontent.com/Animasso/AnimassoSidibe_6_070320202/main/data/photographers.json")
@@ -48,37 +50,43 @@ async function init() {
         displayHeader(onePhotograph)
     }
 //obtenir les medias d'un photographe
-    const oneMedia = medias.filter((media)=> media.photographerId == idPhotographer)
+    let oneMedia = medias.filter((media)=> media.photographerId == idPhotographer)
     console.log(oneMedia);
 
 //obtenir les medias filtrer
+
 if (onePhotograph) {
-    const filterMedias= document.getElementById('filter-select')
-    filterMedias.addEventListener("click", function(e) {
-        var options = filterMedias.querySelectorAll("option");
-        console.log(options);
-        var valueSort = e.target.value;
-        console.log(valueSort);
-    });
-    
+   
+    const filterMedias = document.getElementById('filter-select')
+    let sortedMedias = oneMedia
     console.log(filterMedias);
     filterMedias.addEventListener('change',(e)=>{
+        deleteChild('display-photos')
          if(e.target.value === "Popularité"){
-             oneMedia.sort((a,b)=>{
-                 return a.likes - b.likes
+           sortedMedias =oneMedia.sort((a,b)=>{
+              return  a.likes - b.likes
                  })
          } 
          if(e.target.value === 'Date'){
-             oneMedia.sort(function(a, b) {
+            sortedMedias= oneMedia.sort(function(a, b) {
              var c = new Date(a.date);
              var d = new Date(b.date);
-             return c-d;
+                return c-d;
              });
          }
          if(e.target.value === 'Titre'){
-             return oneMedia.sort((a, b) => a.title.localeCompare(b.title))
+            sortedMedias =oneMedia.sort((a, b) =>  a.title.localeCompare(b.title))
          }
+         oneMedia.forEach((oneMedia)=>{
+            const displayPhotos = document.getElementById('display-photos')
+            const mediasModel = mediaListFactory(oneMedia)
+            const mediasCardDOM =mediasModel.mediasCardDOM()
+            displayPhotos.appendChild(mediasCardDOM)
+        })
+        likesPhotos()
+        lightbox.init()
      })
+     
 }
    
 //mise en place du footer 
@@ -92,7 +100,7 @@ if (onePhotograph) {
     const spanLike = document.querySelector('.likes-Footer')
     console.log(spanLike);
     if(onePhotograph){
-    let arrayOfLikes =[]
+    let arrayOfLikes =[] 
     oneMedia.forEach(media=>{
         arrayOfLikes.push(media.likes)
     })
@@ -113,7 +121,6 @@ if (onePhotograph) {
     likesPhotos()
     if(onePhotograph){
         displayFooter(onePhotograph)
-        //displayLightbox(url)
         
     }
    

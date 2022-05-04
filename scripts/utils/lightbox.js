@@ -8,61 +8,54 @@ function openLightBox() {
 
     class lightbox {
         static init (){
-            const srcMedia=[] 
+            console.log(`start init lightbox`);
+            const srcMedia=[]
+            console.log(document.querySelectorAll('.portofolio')
+            ); 
             document.querySelectorAll('.portofolio')
             .forEach(item=>{
-             if (item.src) 
+                console.log(`nnew item =`,item.src);
+             if (item.src) {
                 srcMedia.push(item.src)
-                else{
+             } else{
                     srcMedia.push(item.firstChild.src);
                     }
                     console.log(srcMedia);
                     item.addEventListener('click',e =>{
                         e.preventDefault()
                         new lightbox(e.currentTarget.getAttribute('src'))
-                        console.log(e);
+                        console.log(e,`init lightbox`);
                     })
             })
            
         }
             constructor(url){
-                const element = this.lightBoxCardDOM(url)
+         const element = this.lightBoxCardDOM(url)
         document.body.appendChild(element)
             }
+    
+    function lightBoxCardDOM(url){
+    
+        const modalLightBox = document.getElementById('modalLightBox')
+         const lightboxModel = lightBoxFactory(url)
+         const lightBoxCardDOM =lightboxModel.lightBoxCardDOM()
+         modalLightBox.appendChild(lightBoxCardDOM)
+    
+     
+     }
+      function nextImage(){
+           e.preventDefault
+           let i = this.images.findIndex(image=> image === this.url)
+           if(i=== this.image.length -1){
+               i = -1
+           }
+       }
+       function prevImage(){
+        e.preventDefault
+        let i = this.images.findIndex(image=> image === this.url)
+        if(i=== 0){
+            i = this.image.length
+        }
+       }
+  
     }
-       
-    lightbox.init()
-
-            /*.forEach(srcMedia=>srcMedia.addEventListener('click',e =>{
-                e.preventDefault()
-                new lightbox(e.currentTarget)
-            }))
-           
-            console.log(srcMedia);
-        }   
-        constructor(url){
-                const element = this.lightBoxCardDOM(url)
-        document.body.appendChild(element)
-            }
-    }
-       
-    lightbox.init()
-    };
-
-   
-  /*  const modalLightBox = document.getElementById("modalLightBox");
-    const lightboxClose =document.querySelector('.lightbox_close')
-    lightboxClose.addEventListener('click',()=>{
-        modalLightBox.style.display = "none";
-        main.style.display = "block"
-        footer.style.display ="block"})
-        item.addEventListener('click',(e) =>{
-            e.preventDefault()
-            lightBoxCardDOM(e.currentTarget.getAttribute('src',srcMedia))
-              for (let i= 0; i < srcMedia.length; i++) {
-                  const src = srcMedia[i];
-                  src.indexOf(e.target)
-                  console.log(src);
-              }
-              
-          })*/

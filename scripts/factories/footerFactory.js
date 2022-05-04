@@ -11,12 +11,13 @@ stickyFooter.classList.add('sticky_footer')
 const likeFooter = document.createElement('div')
 likeFooter.classList.add('likeHeart')
 stickyFooter.appendChild(likeFooter)
+
 const spanLike = document.createElement('div')
 spanLike.classList.add('likes-Footer')
 spanLike.setAttribute('tabindex',0)
 spanLike.setAttribute('aria-label','nombre de like')
-
 likeFooter.appendChild(spanLike)
+
 const imgHeart =document.createElement('img')
 imgHeart.setAttribute('src',likeheart)
 imgHeart.setAttribute('alt','like')

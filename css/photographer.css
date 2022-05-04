@@ -90,7 +90,7 @@ label {
   background-color: #db8876;
   border: 2px solid #000000;
 }
-.display-photos {
+#display-photos {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 70px;
@@ -404,7 +404,7 @@ textarea {
     margin-right: 50px;
     align-items: center;
   }
-  .display-photos {
+  #display-photos {
     display: flex;
     flex-direction: column;
   }
