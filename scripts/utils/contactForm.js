@@ -11,6 +11,7 @@ const lastError = document.getElementById('errorLast');
 const emailError = document.getElementById('errorEmail');
 const messageError = document.getElementById('errorMessage');
 const modal = document.getElementById("contact_modal");
+const closeForm = document.querySelector('.closeForm')
 
 
 function displayModal() {
@@ -30,12 +31,17 @@ function closeModal() {
     lightBox.style.display ='none'
 
 }
+//pour fermer le modal formulaire
 document.addEventListener('keydown', (event) => {  
   if (event.key === 'Escape') {
         closeModal()
   }
 });
-
+closeForm.addEventListener('keydown',(e)=>{
+  if (e.key === 'Enter') {
+    closeModal()
+}
+})
 
 function sendForm(){
     form.addEventListener('submit',(e) => {
@@ -66,7 +72,6 @@ function sendForm(){
         }else{
           lastError.style.display = "none";
         }
-    
     //gestion erreur email
         if (!emailFormat.test(emailValue)) {
             emailError.textContent ="format email incorrect"
