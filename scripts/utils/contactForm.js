@@ -16,11 +16,10 @@ const closeForm = document.querySelector('.closeForm')
 
 function displayModal() {
     const modal = document.getElementById("contact_modal");
-	modal.style.display = "block";
+  	modal.style.display = "block";
     main.style.display = "none"
     footer.style.display ="none"
     lightBox.style.display ='none'
-    
 }
 
 function closeModal() {
@@ -91,11 +90,14 @@ function sendForm(){
         console.log(lastNameValue);
         console.log(emailValue);
         console.log(messageValue);
-    
-    
     //si il n'y a aucune erreur  la fonction est appelée
     if(formIsValid === true){
       sendForm(e);
+      const modal = document.getElementById("contact_modal");
+    modal.style.display = "none";
+    main.style.display = "block"
+    footer.style.display ="block"
+    lightBox.style.display ='none'
     }
       })
 
