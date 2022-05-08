@@ -230,21 +230,32 @@ textarea {
   display: none;
 }
 .lightbox {
+  position: fixed;
   width: 100%;
-
+  height: 100%;
+  left: 0;
+  top: 0;
   display: flex;
   justify-content: center;
   margin-top: 50px;
   align-content: center;
   align-items: center;
+  z-index: 10;
 }
 
 .lightbox_container {
   background-color: #9e4646;
-  width: 65%;
+  width: 1050px;
   height: 900px;
   border-radius: 5px;
 }
+.img_container{
+  width: 1050px;
+    height: 900px;
+    border-radius: 5Px;
+    object-fit: cover;
+}
+
 .lightbox_prev {
   background: url(/assets/icons/chevronLeft.png) no-repeat;
   width: 40px;
@@ -252,7 +263,7 @@ textarea {
   border: none;
   position: absolute;
   cursor: pointer;
-  left: 14%;
+  left: 10%;
   z-index: 20;
 }
 
@@ -262,7 +273,7 @@ textarea {
   height: 40px;
   border: none;
   position: absolute;
-  right: 14%;
+  right: 10%;
   z-index: 20;
   cursor: pointer;
 }
@@ -272,8 +283,8 @@ textarea {
   height: 40px;
   border: none;
   position: absolute;
-  top: 16%;
-  right: 14%;
+  top: 15%;
+  right: 10%;
 }
 
 @media screen and (max-width: 945px) {

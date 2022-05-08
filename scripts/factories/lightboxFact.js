@@ -28,28 +28,29 @@ function lightBoxFactory(data){
         const buttonClose = document.createElement('button')
         buttonClose.classList.add('lightbox_close')
         buttonClose.setAttribute('aria-label','close lightbox')
+        buttonClose.setAttribute('onclick','closeBox()')
         lightbox.appendChild(buttonClose)
     
         const containerLightBox = document.createElement('div')
         containerLightBox.classList.add('lightbox_container')
         lightbox.appendChild(containerLightBox)
-    
-        const imgContainer = document.createElement('img')
-        imgContainer.classList.add('img_container')
-        imgContainer.setAttribute('src',url)
-        containerLightBox.appendChild(imgContainer)
-        
+       // if (url == null){
+            const imgContainer = document.createElement('img')
+            imgContainer.classList.add('img_container')
+            imgContainer.setAttribute('src',url)
+            containerLightBox.appendChild(imgContainer)
+
+       // }else{
+           // const videoContainer = document.createElement('video')
+           // portofolioVideo.setAttribute('src', mediasVideo,)
+           // portofolioVideo.setAttribute('type', 'video/mp4',)
+           // containerLightBox.appendChild(videoContainer)
+       // }
         const titleMedia = document.createElement('h2')
         titleMedia.classList.add('mediatitle')
         titleMedia.textContent = title
         containerLightBox.appendChild(titleMedia)
-        /*}else{
-            const videoContainer = document.createElement('video')
-            portofolioVideo.setAttribute('src', mediasVideo,)
-            portofolioVideo.setAttribute('type', 'video/mp4',)
-            containerLightBox.appendChild(videoContainer)
-        }
-    */
+        
         return lightbox
     
     }
