@@ -242,14 +242,21 @@ textarea {
   align-items: center;
   z-index: 10;
 }
-
+.lightbox_loader{
+  width: 38px;
+  height: 38px;
+  background: url(../assets/loader.svg) center center no-repeat;
+}
 .lightbox_container {
-  background-color: #9e4646;
+  background-color: rgb(146, 148, 148);
   width: 1050px;
   height: 900px;
   border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.img_container{
+.lightbox_container img{
   width: 1050px;
     height: 900px;
     border-radius: 5Px;

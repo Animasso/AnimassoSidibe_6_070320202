@@ -22,6 +22,7 @@ function openLightBox() {
         static init (){
          //   console.log(`start init lightbox`);
             const srcMedia=[]
+            
             console.log(document.querySelectorAll('.portofolio')
             ); 
             document.querySelectorAll('.portofolio')
@@ -31,54 +32,82 @@ function openLightBox() {
                 srcMedia.push(item.src)
              } else{
                     srcMedia.push(item.firstChild.src);
-                    }
-               //     console.log(srcMedia);
+                    }  
+                   console.log(srcMedia);
                     item.addEventListener('click',e =>{
                         e.preventDefault()
-                        new lightbox(e.currentTarget.getAttribute('src'))
+                        new lightbox(e.currentTarget.getAttribute('src'),gallery)
                        // console.log(e,`init lightbox`);
                     })
             })
-           
+           let gallery = srcMedia
+        
+           console.log(`gallery contient:`,gallery);
         }
-        constructor(url){
+        
+        constructor(url,gallery){
              this.lightBoxCardDOM(url)
+             this.loadImage(url)
+             this.gallery = gallery
+             this.nextImage ()
+             this.prevImage()
         }
-    
-        
-        
-    
         lightBoxCardDOM(url){
             const modalLightBox = document.getElementById('modalLightBox')
             modalLightBox.innerHTML=``;
              const lightboxModel = lightBoxFactory({url})
              const lightBoxCardDOM =lightboxModel.lightBoxCardDOM()
              modalLightBox.appendChild(lightBoxCardDOM)
-
              return modalLightBox
-         }
+                   
+            }
+        loadImage(url){
+            this.url = null
+            const image = new Image()
+            const container = document.querySelector('.lightbox_container')
+            const loader = document.createElement('div')
+            loader.classList.add('lightbox_loader')
+            container.innerHTML =''
+            container.appendChild(loader)
+            image.onload = ()=> {
+                container.removeChild(loader)
+                container.appendChild(image)
+                this.url=url
+                console.log(url);
+            console.log('chargé');
+            }  
+            image.src= url
+            console.log(url);
+            
+        }  
         
-         /* function nextImage(e){
-           const nextImage=document.querySelector('.lightbox_next') 
-               e.preventDefault
-               nextImage.addEventListener('click',e=>{
-                let i = this.images.findIndex(image=> image === this.url)
-                if(i=== this.image.length -1){
+         nextImage(){
+           const nextImage = document.querySelector('.lightbox_next') 
+           console.log(nextImage);
+    
+               nextImage.addEventListener('click', (e)=>{
+                e.preventDefault
+                let i = this.gallery.findIndex(image=> image === this.url)
+                console.log(i);
+                if(i=== this.gallery.length -1){
                     i = -1
                 }
+                this.loadImage(this.gallery[i + 1])
+               
                })
-             
            }
-           function prevImage(e){
+         prevImage(){
             const prevImage=document.querySelector('.lightbox_prev') 
-            e.preventDefault
-            prevImage.addEventListener('click',e=>{
-                let i = this.images.findIndex(image=> image === this.url)
+            prevImage.addEventListener('click',(e) =>{
+                e.preventDefault
+                let i = this.gallery.findIndex(image=> image === this.url)
+                console.log(i);
                 if(i=== 0){
-                    i = this.image.length
+                    i = this.gallery.length
                 }
+                this.loadImage(this.gallery[i -1])
             })
            
-           }*/
+           }
         }
         

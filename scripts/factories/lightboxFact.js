@@ -34,18 +34,18 @@ function lightBoxFactory(data){
         const containerLightBox = document.createElement('div')
         containerLightBox.classList.add('lightbox_container')
         lightbox.appendChild(containerLightBox)
-       // if (url == null){
+        
             const imgContainer = document.createElement('img')
             imgContainer.classList.add('img_container')
             imgContainer.setAttribute('src',url)
             containerLightBox.appendChild(imgContainer)
-
-       // }else{
-           // const videoContainer = document.createElement('video')
-           // portofolioVideo.setAttribute('src', mediasVideo,)
-           // portofolioVideo.setAttribute('type', 'video/mp4',)
-           // containerLightBox.appendChild(videoContainer)
-       // }
+        
+       if(url == null){
+            const videoContainer = document.createElement('video')
+            videoContainer.setAttribute('src', url,)
+            videoContainer.setAttribute('type', 'video/mp4',)
+            containerLightBox.appendChild(videoContainer)
+       }
         const titleMedia = document.createElement('h2')
         titleMedia.classList.add('mediatitle')
         titleMedia.textContent = title
