@@ -230,15 +230,8 @@ textarea {
   display: none;
 }
 .lightbox {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
   display: flex;
   justify-content: center;
-  margin-top: 50px;
-  align-content: center;
   align-items: center;
   z-index: 10;
 }
@@ -248,19 +241,26 @@ textarea {
   background: url(../assets/loader.svg) center center no-repeat;
 }
 .lightbox_container {
-  background-color: rgb(146, 148, 148);
-  width: 1050px;
-  height: 900px;
+  background-color: rgb(239, 243, 243);
+ border: 2px solid #95FFF9 ; 
+  width:1253px;
+height :984px;
+top :40px;
+left :101px;
   border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .lightbox_container img{
-  width: 1050px;
+    width: 1050px;
     height: 900px;
     border-radius: 5Px;
     object-fit: cover;
+    -webkit-border-radius: 5Px;
+    -moz-border-radius: 5Px;
+    -ms-border-radius: 5Px;
+    -o-border-radius: 5Px;
 }
 
 .lightbox_prev {
@@ -290,7 +290,8 @@ textarea {
   height: 40px;
   border: none;
   position: absolute;
-  top: 15%;
+  cursor: pointer;
+  top: 5%;
   right: 10%;
 }
 
