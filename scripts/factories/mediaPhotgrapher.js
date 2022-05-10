@@ -15,7 +15,7 @@ function mediaListFactory(data) {
             imgMain.classList.add('portofolio')
             imgMain.setAttribute('src', mediasImages)
             imgMain.setAttribute('onclick','openLightBox()')
-            imgMain.setAttribute('aria-label', 'photographe photo')
+            imgMain.setAttribute('aria-label', title )
             imgMain.setAttribute('tabindex', 0)
             photosPlusTitle.appendChild(imgMain)
         } else {
@@ -25,7 +25,7 @@ function mediaListFactory(data) {
             videoMain.appendChild(portofolioVideo)
             portofolioVideo.setAttribute('src', mediasVideos,)
             portofolioVideo.setAttribute('type', 'video/mp4',)
-            portofolioVideo.setAttribute('aria-label', 'photographe video')
+            portofolioVideo.setAttribute('aria-label', title)
             portofolioVideo.setAttribute('tabindex', 0)
             photosPlusTitle.appendChild(videoMain)
         }
@@ -57,6 +57,8 @@ function mediaListFactory(data) {
 
         const iheart = document.createElement('p')
         iheart.classList.add('imgHeart')
+        iheart.setAttribute('tabindex', 0)
+        iheart.setAttribute('aria-label', 'liké la photo')
         iheart.id ="imgHeart-" +id
         const pLikeHeart = document.createElement('img')
         pLikeHeart.setAttribute('src', likeheart)

@@ -353,7 +353,7 @@ left :101px;
     width: 250px;
     height: 200px;
   }
-  .display-photos {
+  #display-photos {
     grid-template-columns: 1fr 1fr;
     margin-left: 50px;
   }

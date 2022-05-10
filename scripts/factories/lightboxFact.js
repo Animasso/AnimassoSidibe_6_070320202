@@ -27,25 +27,26 @@ function lightBoxFactory(data){
     
         const buttonClose = document.createElement('button')
         buttonClose.classList.add('lightbox_close')
-        buttonClose.setAttribute('aria-label','close lightbox')
+        buttonClose.setAttribute('aria-label','close dialog')
         buttonClose.setAttribute('onclick','closeBox()')
         lightbox.appendChild(buttonClose)
     
         const containerLightBox = document.createElement('div')
         containerLightBox.classList.add('lightbox_container')
         lightbox.appendChild(containerLightBox)
-        
+        if (url!==null) {
             const imgContainer = document.createElement('img')
             imgContainer.classList.add('img_container')
             imgContainer.setAttribute('src',url)
+            imgContainer.setAttribute('tabindex',1)
+            imgContainer.setAttribute('aria-label',title)
             containerLightBox.appendChild(imgContainer)
-        
-       if(url == null){
+        }else{
             const videoContainer = document.createElement('video')
             videoContainer.setAttribute('src', url,)
             videoContainer.setAttribute('type', 'video/mp4',)
             containerLightBox.appendChild(videoContainer)
-       }
+        }
         const titleMedia = document.createElement('h2')
         titleMedia.classList.add('mediatitle')
         titleMedia.textContent = title

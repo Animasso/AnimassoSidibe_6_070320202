@@ -1,6 +1,7 @@
 function likesPhotos() {
       console.log('init likes');
       const imgHeart =document.querySelectorAll('.imgHeart')
+      
       document.querySelectorAll('.imgHeart').forEach(item =>{
           item.addEventListener('click',(e)=>{
           let sibling = item.previousElementSibling
