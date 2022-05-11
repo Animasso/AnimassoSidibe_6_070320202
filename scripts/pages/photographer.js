@@ -122,7 +122,7 @@ if (onePhotograph) {
     likesPhotos()
     if(onePhotograph){
         displayFooter(onePhotograph)
-        lightbox.init()
+        Lightbox.init()
         
     }
    

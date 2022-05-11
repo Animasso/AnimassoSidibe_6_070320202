@@ -3,13 +3,14 @@ function mediaListFactory(data) {
 
     const mediasImages = `assets/photographers/${photographerId}/${image}`;
     const mediasVideos = `assets/photographers/${photographerId}/${video}`
-    console.log(mediasImages);
+   // console.log(mediasImages);
     const likeheart = `assets/icons/heart.png`
     function mediasCardDOM() {
 
 
         const photosPlusTitle = document.createElement('div')
         photosPlusTitle.classList.add('photos_Plus_Title')
+      
         if (video == undefined) {
             const imgMain = document.createElement('img')
             imgMain.classList.add('portofolio')
@@ -24,6 +25,7 @@ function mediaListFactory(data) {
             const portofolioVideo = document.createElement('video')
             videoMain.appendChild(portofolioVideo)
             portofolioVideo.setAttribute('src', mediasVideos,)
+            portofolioVideo.setAttribute('onclick','openLightBox()')
             portofolioVideo.setAttribute('type', 'video/mp4',)
             portofolioVideo.setAttribute('aria-label', title)
             portofolioVideo.setAttribute('tabindex', 0)

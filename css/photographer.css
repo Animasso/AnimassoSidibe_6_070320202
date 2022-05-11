@@ -241,9 +241,9 @@ textarea {
   background: url(../assets/loader.svg) center center no-repeat;
 }
 .lightbox_container {
-  background-color: rgb(239, 243, 243);
+ 
  border: 2px solid #95FFF9 ; 
-  width:1253px;
+  width:80%;
 height :984px;
 top :40px;
 left :101px;
@@ -253,7 +253,7 @@ left :101px;
   justify-content: center;
 }
 .lightbox_container img{
-    width: 1050px;
+    width: 75%;
     height: 900px;
     border-radius: 5Px;
     object-fit: cover;

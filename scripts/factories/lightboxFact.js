@@ -34,7 +34,8 @@ function lightBoxFactory(data){
         const containerLightBox = document.createElement('div')
         containerLightBox.classList.add('lightbox_container')
         lightbox.appendChild(containerLightBox)
-        if (url!==null) {
+        console.log(url);
+        if (url.substr(-4)!=='.mp4') {
             const imgContainer = document.createElement('img')
             imgContainer.classList.add('img_container')
             imgContainer.setAttribute('src',url)

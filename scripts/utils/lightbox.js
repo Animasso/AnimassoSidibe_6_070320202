@@ -18,7 +18,7 @@ function openLightBox() {
         
     }
     
-    class lightbox {
+    class Lightbox {
         static init (){
          //   console.log(`start init lightbox`);
             const srcMedia=[]
@@ -36,7 +36,13 @@ function openLightBox() {
                    console.log(srcMedia);
                     item.addEventListener('click',e =>{
                         e.preventDefault()
-                        new lightbox(e.currentTarget.getAttribute('src'),gallery)
+                        if (e.currentTarget.hasAttribute('src')) {
+                            new Lightbox(e.currentTarget.getAttribute('src'),gallery)
+                        }
+                        else{
+                            new Lightbox(e.currentTarget.getAttribute('src'),gallery)
+                        }
+                        
                        // console.log(e,`init lightbox`);
                     })
             })
@@ -86,7 +92,7 @@ function openLightBox() {
            console.log(nextImage);
     
                nextImage.addEventListener('click', (e)=>{
-                e.preventDefault
+                e.preventDefault()
                 let i = this.gallery.findIndex(image=> image === this.url)
                 console.log(i);
                 if(i=== this.gallery.length -1){
@@ -99,7 +105,7 @@ function openLightBox() {
          prevImage(){
             const prevImage=document.querySelector('.lightbox_prev') 
             prevImage.addEventListener('click',(e) =>{
-                e.preventDefault
+                e.preventDefault()
                 let i = this.gallery.findIndex(image=> image === this.url)
                 console.log(i);
                 if(i=== 0){
