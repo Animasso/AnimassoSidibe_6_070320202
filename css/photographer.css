@@ -178,6 +178,7 @@ form input {
   border: none;
   border-radius: 5px;
   font-size: large;
+  border: 2px solid black;
 }
 form input:focus {
   background: #e9e8e8;
