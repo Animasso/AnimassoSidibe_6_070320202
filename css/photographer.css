@@ -177,11 +177,31 @@ form input {
   height: 68px;
   border: none;
   border-radius: 5px;
+  font-size: large;
 }
+form input:focus {
+  background: #e9e8e8;
+  border: 3px solid black;
+}
+
 textarea {
   width: 100%;
   height: 200px;
+  font-size: large;
 }
+textarea:focus {
+  background: #e9e8e8;
+  border: 3px solid black;
+}
+
+#errorFirst,
+#errorLast,
+#errorEmail,
+#errorMessage {
+  display: none;
+  color: #2a2828;
+}
+
 .like_price {
   width: 20%;
   background-color: #db8876;
@@ -235,32 +255,31 @@ textarea {
   align-items: center;
   z-index: 10;
 }
-.lightbox_loader{
+.lightbox_loader {
   width: 38px;
   height: 38px;
   background: url(../assets/loader.svg) center center no-repeat;
 }
 .lightbox_container {
- 
- border: 2px solid #95FFF9 ; 
-  width:80%;
-height :984px;
-top :40px;
-left :101px;
+  border: 2px solid #95fff9;
+  width: 80%;
+  height: 984px;
+  top: 40px;
+  left: 101px;
   border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.lightbox_container img{
-    width: 75%;
-    height: 900px;
-    border-radius: 5Px;
-    object-fit: cover;
-    -webkit-border-radius: 5Px;
-    -moz-border-radius: 5Px;
-    -ms-border-radius: 5Px;
-    -o-border-radius: 5Px;
+.lightbox_container img {
+  width: 75%;
+  height: 900px;
+  border-radius: 5px;
+  object-fit: cover;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
 }
 
 .lightbox_prev {

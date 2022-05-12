@@ -34,8 +34,8 @@ function lightBoxFactory(data){
         const containerLightBox = document.createElement('div')
         containerLightBox.classList.add('lightbox_container')
         lightbox.appendChild(containerLightBox)
-        console.log(url);
-        if (url.substr(-4)!=='.mp4') {
+        console.log(url.substr(-4));
+        if (url.substr(-4) !=='.mp4') {
             const imgContainer = document.createElement('img')
             imgContainer.classList.add('img_container')
             imgContainer.setAttribute('src',url)
@@ -44,6 +44,7 @@ function lightBoxFactory(data){
             containerLightBox.appendChild(imgContainer)
         }else{
             const videoContainer = document.createElement('video')
+            videoContainer.classList.add('img_container')
             videoContainer.setAttribute('src', url,)
             videoContainer.setAttribute('type', 'video/mp4',)
             containerLightBox.appendChild(videoContainer)

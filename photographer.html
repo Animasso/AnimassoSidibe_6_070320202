@@ -68,45 +68,48 @@
         </header>
 
         <form id="contact_Photograph" role="form">
-          <div role="group" aria-labelledby="formulaire">
+          <div role="group" aria-labelledby="coordonnées">
             <label for="first_name">Prénom</label>
             <input
               type="text"
               name="first_name"
+              placeholder="entrer votre prénom"
               autocomplete="given-name"
               id="first_name"
               aria-required="true"
               minlength="2"
             />
-            <span id="errorFirst"></span>
+            <span id="errorFirst">Veuillez saisir au moins 2 caractère</span>
             <label for="last_name">Nom</label>
             <input
               type="text"
               name="last_name"
+              placeholder="entrer votre nom"
               autocomplete="family-name"
               id="last_name"
+              autofocus
               aria-required="true"
               minlength="2"
             />
-            <span id="errorLast"></span>
-
+            <span id="errorLast">Veuillez saisir au moins 2 caractère</span>
             <label for="email">Email</label>
             <input
               type="email"
               name="email"
+              placeholder="format email "
               autocomplete="email"
               id="email"
               aria-required="true"
             />
-            <span id="errorEmail"></span>
-
+            <span id="errorEmail">Veuillez saisir au bon format</span>
             <label for="message">Votre message</label>
             <textarea
               name="message"
+              placeholder="entrer votre message"
               id="message"
               aria-required="true"
             ></textarea>
-            <span id="errormessage"></span>
+            <span id="errorMessage">Veuillez saisir un message plus long</span>
           </div>
           <button class="contact_button" type="submit">Envoyer</button>
         </form>
