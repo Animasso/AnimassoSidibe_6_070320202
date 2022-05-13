@@ -20,16 +20,14 @@ function mediaListFactory(data) {
             imgMain.setAttribute('tabindex', 0)
             photosPlusTitle.appendChild(imgMain)
         } else {
-            const videoMain = document.createElement('div')
-            videoMain.classList.add('portofolio')
             const portofolioVideo = document.createElement('video')
-            videoMain.appendChild(portofolioVideo)
+            portofolioVideo.classList.add('portofolio')
             portofolioVideo.setAttribute('src', mediasVideos,)
             portofolioVideo.setAttribute('onclick','openLightBox()')
             portofolioVideo.setAttribute('type', 'video/mp4',)
             portofolioVideo.setAttribute('aria-label', title)
             portofolioVideo.setAttribute('tabindex', 0)
-            photosPlusTitle.appendChild(videoMain)
+            photosPlusTitle.appendChild(portofolioVideo)
         }
 
 

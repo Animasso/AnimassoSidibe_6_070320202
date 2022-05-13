@@ -1,5 +1,5 @@
 function lightBoxFactory(data){
-    const {title, url} = data;
+    const {title} = data;
     //const mediasImage = `assets/photographers/${photographerId}/${url}`;
     //const mediasVideo = `assets/photographers/${photographerId}/${video}`
     
@@ -11,7 +11,6 @@ function lightBoxFactory(data){
         lightbox.setAttribute('role','dialog')
         lightbox.setAttribute('aria-hidden', 'true')
         lightbox.setAttribute('aria-label','image closeup view')
-       
         
         const buttonLeft = document.createElement('button')
         buttonLeft.classList.add('lightbox_prev')
@@ -34,12 +33,7 @@ function lightBoxFactory(data){
         const containerLightBox = document.createElement('div')
         containerLightBox.classList.add('lightbox_container')
         lightbox.appendChild(containerLightBox)
-        
-        
             
-        
-            
-        
         const titleMedia = document.createElement('h2')
         titleMedia.classList.add('mediatitle')
         titleMedia.textContent = title
@@ -49,7 +43,7 @@ function lightBoxFactory(data){
     
     }
 
-    return {title, url, lightBoxCardDOM }
+    return {title, lightBoxCardDOM }
 }
 
 

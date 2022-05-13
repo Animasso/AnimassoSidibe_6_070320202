@@ -8,7 +8,6 @@ function openLightBox() {
 }
 function closeBox() {
   const closeLightbox = document.querySelector(".lightbox_close");
-  console.log(closeLightbox);
   const secondHeader = document.querySelector(".secondHeader");
   modalLightBox.style.display = "none";
   main.style.display = "block";
@@ -23,27 +22,17 @@ class Lightbox {
 
     console.log(document.querySelectorAll(".portofolio"));
     document.querySelectorAll(".portofolio").forEach((item) => {
-      // console.log(`nnew item =`,item.src);
       if (item.src) {
         srcMedia.push(item.src);
       } else {
         srcMedia.push(item.firstChild.src);
       }
-      //console.log(srcMedia);
       item.addEventListener("click", (e) => {
         e.preventDefault();
-        if (e.currentTarget.hasAttribute("src")) {
-          new Lightbox(e.currentTarget.getAttribute("src"), gallery);
-        } else {
-          new Lightbox(e.currentTarget.getAttribute("src"), gallery);
-        }
-
-        // console.log(e,`init lightbox`);
+        new Lightbox(e.currentTarget.getAttribute("src"), gallery);
       });
     });
     let gallery = srcMedia;
-
-    // console.log(`gallery contient:`, gallery);
   }
 
   constructor(url, gallery) {
@@ -76,26 +65,28 @@ class Lightbox {
     videoContainer.setAttribute("src", url);
     videoContainer.setAttribute("type", "video/mp4");
     videoContainer.setAttribute("tabindex", 1);
-    
+
     const loader = document.createElement("div");
     loader.classList.add("lightbox_loader");
     container.innerHTML = "";
     container.appendChild(loader);
-    if (url.substr(-4) !== ".mp4") {
-      container.removeChild(loader);
-      container.appendChild(imgContainer);
-      this.url = url;
-      console.log(url);
-      console.log("chargé");
-      imgContainer.src = url;
-      console.log(url);
-    } else {
+    if (url.substr(-4) == ".mp4") {
+      console.log(url.substr(-4));
       container.removeChild(loader);
       container.appendChild(videoContainer);
       this.url = url;
       console.log(url);
       console.log("chargé");
       videoContainer.src = url;
+      console.log(url);
+    } else {
+      console.log(url.substr(-4));
+      container.removeChild(loader);
+      container.appendChild(imgContainer);
+      this.url = url;
+      console.log(url);
+      console.log("chargé");
+      imgContainer.src = url;
       console.log(url);
     }
   }
