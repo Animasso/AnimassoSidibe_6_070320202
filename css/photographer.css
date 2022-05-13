@@ -124,7 +124,9 @@ label {
   color: #911c1c;
   margin-top: 0;
 }
-
+#contact_modal{
+  z-index: 100;
+}
 .modal {
   border-radius: 5px;
   background-color: #db8876;
@@ -272,7 +274,7 @@ textarea:focus {
   align-items: center;
   justify-content: center;
 }
-.lightbox_container img {
+.lightbox_container img ,.lightbox_container video{
   width: 75%;
   height: 900px;
   border-radius: 5px;

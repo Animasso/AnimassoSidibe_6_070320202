@@ -14,6 +14,7 @@ const messageError = document.getElementById("errorMessage");
 const modal = document.getElementById("contact_modal");
 const closeForm = document.querySelector(".closeForm");
 
+
 //pour ouvrir le modal formulaire
 function displayModal() {
   const modal = document.getElementById("contact_modal");
@@ -57,7 +58,7 @@ form.addEventListener("submit", (e) => {
   //gestion erreur premon
   if (firstNameValue.length < 2) {
     firstError.style.display = "block";
-    firstError.style.color = "red";
+    firstError.style.color = "black";
     firstName.style.border = "2px solid red";
     formIsValid = false;
   } else {
@@ -66,7 +67,7 @@ form.addEventListener("submit", (e) => {
   //gestion erreur nom
   if (lastNameValue.length < 2) {
     lastError.style.display = "block";
-    lastError.style.color = "red";
+    lastError.style.color = "black";
     lastName.style.border = "2px solid red";
     formIsValid = false;
   } else {
@@ -75,7 +76,7 @@ form.addEventListener("submit", (e) => {
   //gestion erreur email
   if (!emailFormat.test(emailValue)) {
     emailError.style.display = "block";
-    emailError.style.color = "red";
+    emailError.style.color = "black";
     email.style.border = "2px solid red";
     formIsValid = false;
   } else {
@@ -84,7 +85,7 @@ form.addEventListener("submit", (e) => {
   //gestion erreur message
   if (messageValue.length < 4) {
     messageError.style.display = "block";
-    messageError.style.color = "red";
+    messageError.style.color = "black";
     message.style.border = "2px solid red";
     formIsValid = false;
   } else {

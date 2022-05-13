@@ -84,7 +84,7 @@ if (onePhotograph) {
             displayPhotos.appendChild(mediasCardDOM)
         })
         likesPhotos()
-        lightbox.init()
+        Lightbox.init()
      })
      
 }
