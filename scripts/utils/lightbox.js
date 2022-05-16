@@ -1,6 +1,9 @@
 function openLightBox() {
   const modalLightBox = document.getElementById("modalLightBox");
   const secondHeader = document.querySelector(".secondHeader");
+  const modal = document.getElementById("contact_modal");
+  modal.style.display = 'none'
+  modal.ariaHidden = "true";
   secondHeader.style.display = "none";
   modalLightBox.style.display = "block";
   main.style.display = "none";
@@ -90,10 +93,10 @@ class Lightbox {
       console.log(url);
     }
   }
+  
   nextImage() {
     const nextImage = document.querySelector(".lightbox_next");
     console.log(nextImage);
-
     nextImage.addEventListener("click", (e) => {
       e.preventDefault();
       let i = this.gallery.findIndex((image) => image === this.url);

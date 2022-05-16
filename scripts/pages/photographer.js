@@ -59,12 +59,11 @@ if (onePhotograph) {
    
     const filterMedias = document.getElementById('filter-select')
     let sortedMedias = oneMedia
-    //console.log(filterMedias);
     filterMedias.addEventListener('change',(e)=>{
         deleteChild('display-photos')
          if(e.target.value === "Popularité"){
            sortedMedias =oneMedia.sort((a,b)=>{
-              return  a.likes - b.likes
+              return  b.likes - a.likes
                  })
          } 
          if(e.target.value === 'Date'){
