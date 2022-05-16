@@ -14,20 +14,17 @@ const messageError = document.getElementById("errorMessage");
 const modal = document.getElementById("contact_modal");
 const closeForm = document.querySelector(".closeForm");
 
-
 //pour ouvrir le modal formulaire
 function displayModal() {
-  const modal = document.getElementById("contact_modal");
   modal.ariaHidden = "false";
-  modal.style.display = 'block'
+  modal.style.display = "block";
   main.style.display = "none";
   footer.style.display = "none";
   lightBox.style.display = "none";
 }
 //pour fermer le modal formulaire
 function closeModal() {
-  const modal = document.getElementById("contact_modal");
-  modal.style.display = 'none'
+  modal.style.display = "none";
   modal.ariaHidden = "true";
   main.style.display = "block";
   footer.style.display = "block";
@@ -44,7 +41,7 @@ closeForm.addEventListener("keydown", (e) => {
   }
 });
 
-//envoi du formaulaire 
+//envoi du formaulaire
 const form = document.getElementById("contact_Photograph");
 console.log(form);
 form.addEventListener("submit", (e) => {
@@ -61,8 +58,8 @@ form.addEventListener("submit", (e) => {
   if (firstNameValue.length < 2) {
     firstError.style.display = "block";
     firstError.style.color = "black";
-    firstError.style.fontWeight ="bolder"
-    firstError.style.backgroundColor ="red"
+    firstError.style.fontWeight = "bolder";
+    firstError.style.backgroundColor = "red";
     firstName.style.border = "3px solid red";
     formIsValid = false;
   } else {
@@ -72,8 +69,8 @@ form.addEventListener("submit", (e) => {
   if (lastNameValue.length < 2) {
     lastError.style.display = "block";
     lastError.style.color = "black";
-    lastError.style.fontWeight ="bolder"
-    lastError.style.backgroundColor ="red"
+    lastError.style.fontWeight = "bolder";
+    lastError.style.backgroundColor = "red";
     lastName.style.border = "3px solid red";
     formIsValid = false;
   } else {
@@ -83,8 +80,8 @@ form.addEventListener("submit", (e) => {
   if (!emailFormat.test(emailValue)) {
     emailError.style.display = "block";
     emailError.style.color = "black";
-    emailError.style.fontWeight ="bolder"
-    emailError.style.backgroundColor ="red"
+    emailError.style.fontWeight = "bolder";
+    emailError.style.backgroundColor = "red";
     email.style.border = "3px solid red";
     formIsValid = false;
   } else {
@@ -94,8 +91,8 @@ form.addEventListener("submit", (e) => {
   if (messageValue.length < 4) {
     messageError.style.display = "block";
     messageError.style.color = "black";
-    messageError.style.fontWeight ="bolder"
-    messageError.style.backgroundColor ="red"
+    messageError.style.fontWeight = "bolder";
+    messageError.style.backgroundColor = "red";
     message.style.border = "3px solid red";
     formIsValid = false;
   } else {

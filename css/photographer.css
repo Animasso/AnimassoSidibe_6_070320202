@@ -1,4 +1,6 @@
-
+#contact_modal {
+  display: none;
+}
 .logo2 {
   height: 50px;
   margin-left: 100px;
@@ -314,7 +316,11 @@ textarea:focus {
   top: 5%;
   right: 10%;
 }
-
+.mediatitle{
+  align-self: baseline;
+  margin-left: 150px;
+  color: #d3573c;
+}
 @media screen and (max-width: 945px) {
   .modal header h2 {
     font-size: 40px;

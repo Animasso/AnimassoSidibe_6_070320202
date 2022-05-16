@@ -33,11 +33,7 @@ function lightBoxFactory(data){
         const containerLightBox = document.createElement('div')
         containerLightBox.classList.add('lightbox_container')
         lightbox.appendChild(containerLightBox)
-            
-        const titleMedia = document.createElement('h2')
-        titleMedia.classList.add('mediatitle')
-        titleMedia.textContent = title
-        containerLightBox.appendChild(titleMedia)
+        const modalLightBox = document.getElementById('modalLightBox')
         
         return lightbox
     

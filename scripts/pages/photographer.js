@@ -20,10 +20,9 @@ function displayMedias(medias){
 
 
 
-function deleteChild(elementId) {
+function deleteChild() {
     var e = document.getElementById('display-photos');
     e.innerHTML =''
-   
 }
 
 async function init() {
@@ -56,13 +55,11 @@ async function init() {
 //obtenir les medias filtrer
 
 if (onePhotograph) {
-   
     const filterMedias = document.getElementById('filter-select')
-    let sortedMedias = oneMedia
     filterMedias.addEventListener('change',(e)=>{
         deleteChild('display-photos')
          if(e.target.value === "Popularité"){
-           sortedMedias =oneMedia.sort((a,b)=>{
+          sortedMedias =oneMedia.sort((a,b)=>{
               return  b.likes - a.likes
                  })
          } 

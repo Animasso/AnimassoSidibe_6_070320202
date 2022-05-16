@@ -1,8 +1,10 @@
+const secondHeader = document.querySelector(".secondHeader");
+const modalLightBox = document.getElementById("modalLightBox");
+
 function openLightBox() {
-  const modalLightBox = document.getElementById("modalLightBox");
-  const secondHeader = document.querySelector(".secondHeader");
+  const main = document.getElementById("mainPhotograph");
   const modal = document.getElementById("contact_modal");
-  modal.style.display = 'none'
+  modal.style.display = "none";
   modal.ariaHidden = "true";
   secondHeader.style.display = "none";
   modalLightBox.style.display = "block";
@@ -10,8 +12,7 @@ function openLightBox() {
   footer.style.display = "none";
 }
 function closeBox() {
-  const closeLightbox = document.querySelector(".lightbox_close");
-  const secondHeader = document.querySelector(".secondHeader");
+  const main = document.getElementById("mainPhotograph");
   modalLightBox.style.display = "none";
   main.style.display = "block";
   footer.style.display = "block";
@@ -39,6 +40,7 @@ class Lightbox {
   }
 
   constructor(url, gallery) {
+    url ='http://127.0.0.1:5501/'+ url  
     this.lightBoxCardDOM(url);
     this.loadImage(url);
     this.gallery = gallery;
@@ -60,7 +62,9 @@ class Lightbox {
     const imgContainer = document.createElement("img");
     imgContainer.classList.add("img_container");
     imgContainer.setAttribute("src", url);
+    imgContainer.setAttribute('data-title','titre test')
     imgContainer.setAttribute("tabindex", 1);
+     
 
     const videoContainer = document.createElement("video");
     videoContainer.classList.add("video_container");
@@ -90,16 +94,25 @@ class Lightbox {
       console.log(url);
       console.log("chargé");
       imgContainer.src = url;
+      const titleMedia = document.createElement('h2')
+        titleMedia.id = 'lightbox-title-id'
+        titleMedia.classList.add('mediatitle')
+        container.appendChild(titleMedia)
+
+    const titleElement = document.getElementById('lightbox-title-id');
+    titleElement.textContent ='titre de test'
       console.log(url);
     }
   }
-  
+
   nextImage() {
     const nextImage = document.querySelector(".lightbox_next");
     console.log(nextImage);
     nextImage.addEventListener("click", (e) => {
       e.preventDefault();
       let i = this.gallery.findIndex((image) => image === this.url);
+      console.log(this.url);
+      console.log(this.gallery);
       console.log(i);
       if (i === this.gallery.length - 1) {
         i = -1;
