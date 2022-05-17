@@ -40,7 +40,7 @@ class Lightbox {
   }
 
   constructor(url, gallery) {
-    url ='http://127.0.0.1:5501/'+ url  
+    url = "http://127.0.0.1:5501/" + url;
     this.lightBoxCardDOM(url);
     this.loadImage(url);
     this.gallery = gallery;
@@ -62,9 +62,8 @@ class Lightbox {
     const imgContainer = document.createElement("img");
     imgContainer.classList.add("img_container");
     imgContainer.setAttribute("src", url);
-    imgContainer.setAttribute('data-title','titre test')
+    imgContainer.setAttribute("data-title", "titre test");
     imgContainer.setAttribute("tabindex", 1);
-     
 
     const videoContainer = document.createElement("video");
     videoContainer.classList.add("video_container");
@@ -85,6 +84,13 @@ class Lightbox {
       console.log(url);
       console.log("chargé");
       videoContainer.src = url;
+      const titleMedia = document.createElement("h2");
+      titleMedia.id = "lightbox-title-id";
+      titleMedia.classList.add("mediatitle");
+      container.appendChild(titleMedia);
+
+      const titleElement = document.getElementById("lightbox-title-id");
+      titleElement.textContent = "titre de test";
       console.log(url);
     } else {
       console.log(url.substr(-4));
@@ -94,13 +100,13 @@ class Lightbox {
       console.log(url);
       console.log("chargé");
       imgContainer.src = url;
-      const titleMedia = document.createElement('h2')
-        titleMedia.id = 'lightbox-title-id'
-        titleMedia.classList.add('mediatitle')
-        container.appendChild(titleMedia)
+      const titleMedia = document.createElement("h2");
+      titleMedia.id = "lightbox-title-id";
+      titleMedia.classList.add("mediatitle");
+      container.appendChild(titleMedia);
 
-    const titleElement = document.getElementById('lightbox-title-id');
-    titleElement.textContent ='titre de test'
+      const titleElement = document.getElementById("lightbox-title-id");
+      titleElement.textContent = "titre de test";
       console.log(url);
     }
   }
