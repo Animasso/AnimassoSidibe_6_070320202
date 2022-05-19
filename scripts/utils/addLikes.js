@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 function likesPhotos() {
       console.log('init likes');
       document.querySelectorAll('.imgHeart').forEach(item =>{

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 function mediaListFactory(data) {
     const { id, name, date, likes, price, title, image, video, photographerId } = data;
 

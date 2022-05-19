@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const main = document.getElementById("mainPhotograph");
 const footer = document.querySelector(".like_price");
 const lightBox = document.getElementById("modalLightBox");

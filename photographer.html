@@ -18,12 +18,12 @@
     <title>Fisheye - photographe</title>
   </head>
   <body>
-    <header class="secondHeader" role="banner">
+    <header class="secondHeader">
       <a href="./index.html" aria-label="lien vers la page d'acceuil">
-        <img src="assets/images/logo.png" class="logo2" />
+        <img src="assets/images/logo.png" class="logo2" alt="logo" />
       </a>
     </header>
-    <main role="main" id="mainPhotograph" aria-hidden="false">
+    <main id="mainPhotograph" aria-hidden="false">
       <section
         class="photographHeader"
         aria-label="photographer info"
@@ -50,12 +50,7 @@
       tabindex="0"
     ></div>
     <div id="contact_modal">
-      <div
-        class="modal"
-        aria-hidden="true"
-        role="dialog"
-        aria-describedby="formulaire de contact"
-      >
+      <div class="modal" aria-hidden="true" role="dialog">
         <header class="formGroup">
           <h2 tabindex="0">Contactez-moi <br /><span id="formName"></span></h2>
           <img
@@ -64,11 +59,12 @@
             tabindex="0"
             onclick="closeModal()"
             aria-label="fermer le formulaire"
+            alt=""
           />
         </header>
 
-        <form id="contact_Photograph" role="form">
-          <div role="group" aria-labelledby="coordonnées">
+        <form id="contact_Photograph">
+          <div role="group">
             <label for="first_name">Prénom</label>
             <input
               type="text"
@@ -123,7 +119,7 @@
       </div>
     </div>
 
-    <footer class="like_price" role="contentinfo"></footer>
+    <footer class="like_price"></footer>
     <script src="/scripts/factories/mediaPhotgrapher.js"></script>
     <script src="/scripts/utils/addLikes.js"></script>
     <script src="/scripts/factories/footerFactory.js"></script>

@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 const secondHeader = document.querySelector(".secondHeader");
 const modalLightBox = document.getElementById("modalLightBox");
 
@@ -33,19 +35,26 @@ class Lightbox {
       }
       item.addEventListener("click", (e) => {
         e.preventDefault();
-        new Lightbox(e.currentTarget.getAttribute("src"), gallery);
+        new Lightbox(e.currentTarget.getAttribute("src"), gallery,titles);
       });
     });
     let gallery = srcMedia;
+    let titles =[];
+    document.querySelectorAll('.title').forEach((item)=>{
+        titles.push (item.innerText)
+        console.log(titles);
+     })
   }
+  
 
-  constructor(url, gallery) {
+  constructor(url, gallery,titles) {
     url = "http://127.0.0.1:5501/" + url;
     this.lightBoxCardDOM(url);
     this.loadImage(url);
     this.gallery = gallery;
     this.nextImage();
     this.prevImage();
+    this.titles =titles
   }
   lightBoxCardDOM(url) {
     const modalLightBox = document.getElementById("modalLightBox");
@@ -55,7 +64,7 @@ class Lightbox {
     modalLightBox.appendChild(lightBoxCardDOM);
     return modalLightBox;
   }
-  loadImage(url) {
+  loadImage(url,titles) {
     this.url = null;
     const container = document.querySelector(".lightbox_container");
 
@@ -69,6 +78,7 @@ class Lightbox {
     videoContainer.classList.add("video_container");
     videoContainer.setAttribute("controls", "");
     videoContainer.setAttribute("src", url);
+    videoContainer.setAttribute("data-title", "titre test");
     videoContainer.setAttribute("type", "video/mp4");
     videoContainer.setAttribute("tabindex", 1);
 
@@ -90,8 +100,9 @@ class Lightbox {
       container.appendChild(titleMedia);
 
       const titleElement = document.getElementById("lightbox-title-id");
-      titleElement.textContent = "titre de test";
+      titleElement.textContent = titles;
       console.log(url);
+      console.log(titles);
     } else {
       console.log(url.substr(-4));
       container.removeChild(loader);
@@ -106,8 +117,10 @@ class Lightbox {
       container.appendChild(titleMedia);
 
       const titleElement = document.getElementById("lightbox-title-id");
-      titleElement.textContent = "titre de test";
+      titleElement.textContent = titles;
       console.log(url);
+      
+   
     }
   }
 
@@ -123,7 +136,7 @@ class Lightbox {
       if (i === this.gallery.length - 1) {
         i = -1;
       }
-      this.loadImage(this.gallery[i + 1]);
+      this.loadImage(this.gallery[i + 1],this.titles[i+1]);
     });
   }
   prevImage() {
@@ -135,7 +148,7 @@ class Lightbox {
       if (i === 0) {
         i = this.gallery.length;
       }
-      this.loadImage(this.gallery[i - 1]);
+      this.loadImage(this.gallery[i - 1],this.titles[i-1]);
     });
   }
 }

@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 async function getPhotographers() {
     // Penser à remplacer par les données récupérées dans le json
     const data = await fetch("https://raw.githubusercontent.com/Animasso/AnimassoSidibe_6_070320202/main/data/photographers.json")

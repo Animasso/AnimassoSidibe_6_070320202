@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 function footerFactory(data) {
     const { likes, price } = data;
     const likeheart = `assets/icons/heartBlack.png`

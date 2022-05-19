@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 function lightBoxFactory(data){
     const {title} = data;
     //const mediasImage = `assets/photographers/${photographerId}/${url}`;

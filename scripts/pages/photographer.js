@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 //Mettre le code JavaScript lié à la page photographer.html
 function displayHeader(photographer){
     const banner = document.querySelector('.photographHeader')
