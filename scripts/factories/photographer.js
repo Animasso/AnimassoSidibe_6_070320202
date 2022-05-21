@@ -75,7 +75,7 @@ function photographerFactory(data) {
         const imgHeader = document.createElement( 'img' );
         imgHeader.setAttribute("src", picture)
         imgHeader.setAttribute("alt",name)
-        imgHeader.setAttribute("aria-label", name)
+        imgHeader.setAttribute("aria-label", name )
         imgHeader.setAttribute("tabindex",0)
         imagephotgraph.appendChild(imgHeader)
         

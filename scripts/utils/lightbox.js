@@ -35,7 +35,7 @@ class Lightbox {
       }
       item.addEventListener("click", (e) => {
         e.preventDefault();
-        new Lightbox(e.currentTarget.getAttribute("src"), gallery,titles);
+        new Lightbox(e.currentTarget.getAttribute("src"), gallery,e.currentTarget.getAttribute("data-title"));
       });
     });
     let gallery = srcMedia;
@@ -50,7 +50,7 @@ class Lightbox {
   constructor(url, gallery,titles) {
     url = "http://127.0.0.1:5501/" + url;
     this.lightBoxCardDOM(url);
-    this.loadImage(url);
+    this.loadImage(url,titles);
     this.gallery = gallery;
     this.nextImage();
     this.prevImage();
@@ -71,14 +71,14 @@ class Lightbox {
     const imgContainer = document.createElement("img");
     imgContainer.classList.add("img_container");
     imgContainer.setAttribute("src", url);
-    imgContainer.setAttribute("data-title", "titre test");
+    imgContainer.setAttribute("data-title", titles);
     imgContainer.setAttribute("tabindex", 1);
 
     const videoContainer = document.createElement("video");
     videoContainer.classList.add("video_container");
     videoContainer.setAttribute("controls", "");
     videoContainer.setAttribute("src", url);
-    videoContainer.setAttribute("data-title", "titre test");
+    videoContainer.setAttribute("data-title", titles);
     videoContainer.setAttribute("type", "video/mp4");
     videoContainer.setAttribute("tabindex", 1);
 
