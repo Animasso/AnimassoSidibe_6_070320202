@@ -35,7 +35,8 @@ class Lightbox {
       }
       item.addEventListener("click", (e) => {
         e.preventDefault();
-        new Lightbox(e.currentTarget.getAttribute("src"), gallery,e.currentTarget.getAttribute("data-title"));
+        new Lightbox(e.currentTarget.getAttribute("src"),e.currentTarget.getAttribute("aria-label"), gallery,titles);
+        console.log(e.currentTarget.getAttribute("data-title"));
       });
     });
     let gallery = srcMedia;
@@ -47,10 +48,10 @@ class Lightbox {
   }
   
 
-  constructor(url, gallery,titles) {
+  constructor(url,title, gallery,titles) {
     url = "http://127.0.0.1:5501/" + url;
     this.lightBoxCardDOM(url);
-    this.loadImage(url,titles);
+    this.loadImage(url,title);
     this.gallery = gallery;
     this.nextImage();
     this.prevImage();
