@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 const secondHeader = document.querySelector(".secondHeader");
-const modalLightBox = document.getElementById("modalLightBox");
+
 
 function openLightBox() {
   const main = document.getElementById("mainPhotograph");
@@ -35,27 +35,32 @@ class Lightbox {
       }
       item.addEventListener("click", (e) => {
         e.preventDefault();
-        new Lightbox(e.currentTarget.getAttribute("src"),e.currentTarget.getAttribute("aria-label"), gallery,titles);
+        new Lightbox(
+          e.currentTarget.getAttribute("src"),
+          e.currentTarget.getAttribute("aria-label"),
+          gallery,
+          titles
+        );
         console.log(e.currentTarget.getAttribute("data-title"));
       });
     });
     let gallery = srcMedia;
-    let titles =[];
-    document.querySelectorAll('.title').forEach((item)=>{
-        titles.push (item.innerText)
-        console.log(titles);
-     })
+    let titles = [];
+    document.querySelectorAll(".title").forEach((item) => {
+      titles.push(item.innerText);
+      console.log(titles);
+    });
   }
-  
 
-  constructor(url,title, gallery,titles) {
+  constructor(url, title, gallery, titles) {
     url = "http://127.0.0.1:5501/" + url;
     this.lightBoxCardDOM(url);
-    this.loadImage(url,title);
+    this.loadImage(url, title);
     this.gallery = gallery;
     this.nextImage();
     this.prevImage();
-    this.titles =titles
+    this.listener()
+    this.titles = titles;
   }
   lightBoxCardDOM(url) {
     const modalLightBox = document.getElementById("modalLightBox");
@@ -65,7 +70,7 @@ class Lightbox {
     modalLightBox.appendChild(lightBoxCardDOM);
     return modalLightBox;
   }
-  loadImage(url,titles) {
+  loadImage(url, titles) {
     this.url = null;
     const container = document.querySelector(".lightbox_container");
 
@@ -120,8 +125,6 @@ class Lightbox {
       const titleElement = document.getElementById("lightbox-title-id");
       titleElement.textContent = titles;
       console.log(url);
-      
-   
     }
   }
 
@@ -131,39 +134,40 @@ class Lightbox {
     nextImage.addEventListener("click", (e) => {
       e.preventDefault();
       let i = this.gallery.findIndex((image) => image === this.url);
-      console.log(this.url);
-      console.log(this.gallery);
-      console.log(i);
       if (i === this.gallery.length - 1) {
         i = -1;
       }
-      this.loadImage(this.gallery[i + 1],this.titles[i+1]);
+      this.loadImage(this.gallery[i + 1], this.titles[i + 1]);
     });
+   
   }
-  
-  
+
   prevImage() {
     const prevImage = document.querySelector(".lightbox_prev");
     prevImage.addEventListener("click", (e) => {
       e.preventDefault();
       let i = this.gallery.findIndex((image) => image === this.url);
-      console.log(i);
+     
       if (i === 0) {
         i = this.gallery.length;
       }
-      this.loadImage(this.gallery[i - 1],this.titles[i-1]);
+      this.loadImage(this.gallery[i - 1], this.titles[i - 1]);
+    });
+    
+  }
+  listener(){
+    const modalLightBox = document.getElementById("modalLightBox");
+    modalLightBox.addEventListener("keydown", (e) => { 
+      if ( e.keyCode == '37') 
+      console.log(e.keyCode);{
+       this.prevImage();
+      }if (e.keyCode == '39') { 
+       this.nextImage();
+       console.log(e.keyCode)
+      }
+      console.log('je mexecute');
     });
   }
 }
-   
-    nextImage.addEventListener('keydown',(e)=>{
-    if (e.key === 'ArrowLeft') {
-    nextImage()
-  }
-})
-const prevImage = document.querySelector(".lightbox_prev");
-prevImage.addEventListener('keydown',(e)=>{
-  if (e.key === 'ArrowRight') {
-  prevImage()
-}
-})
+
+
