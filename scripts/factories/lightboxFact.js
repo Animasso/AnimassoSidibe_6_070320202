@@ -1,10 +1,6 @@
 /* eslint-disable no-unused-vars */
 function lightBoxFactory(data){
     const {title} = data;
-    //const mediasImage = `assets/photographers/${photographerId}/${url}`;
-    //const mediasVideo = `assets/photographers/${photographerId}/${video}`
-    
-
     function lightBoxCardDOM(){
         
         const lightbox =document.createElement('article')
@@ -34,8 +30,6 @@ function lightBoxFactory(data){
         const containerLightBox = document.createElement('div')
         containerLightBox.classList.add('lightbox_container')
         lightbox.appendChild(containerLightBox)
-        const modalLightBox = document.getElementById('modalLightBox')
-        
         return lightbox
     
     }

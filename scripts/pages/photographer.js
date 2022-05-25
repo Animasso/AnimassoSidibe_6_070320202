@@ -115,6 +115,7 @@ async function init() {
   if (onePhotograph) {
     displayFooter(onePhotograph);
     Lightbox.init();
+    
   }
 }
 init();

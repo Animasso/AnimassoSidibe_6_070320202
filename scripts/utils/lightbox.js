@@ -141,6 +141,7 @@ class Lightbox {
     });
   }
   
+  
   prevImage() {
     const prevImage = document.querySelector(".lightbox_prev");
     prevImage.addEventListener("click", (e) => {
@@ -154,4 +155,15 @@ class Lightbox {
     });
   }
 }
-
+   
+    nextImage.addEventListener('keydown',(e)=>{
+    if (e.key === 'ArrowLeft') {
+    nextImage()
+  }
+})
+const prevImage = document.querySelector(".lightbox_prev");
+prevImage.addEventListener('keydown',(e)=>{
+  if (e.key === 'ArrowRight') {
+  prevImage()
+}
+})
