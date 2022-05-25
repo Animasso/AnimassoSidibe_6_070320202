@@ -140,6 +140,7 @@ class Lightbox {
       this.loadImage(this.gallery[i + 1],this.titles[i+1]);
     });
   }
+  
   prevImage() {
     const prevImage = document.querySelector(".lightbox_prev");
     prevImage.addEventListener("click", (e) => {
@@ -153,3 +154,4 @@ class Lightbox {
     });
   }
 }
+

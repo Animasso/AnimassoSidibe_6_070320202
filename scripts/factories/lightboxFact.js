@@ -21,9 +21,9 @@ function lightBoxFactory(data){
     
         const buttonRight = document.createElement('button')
         buttonRight.classList.add('lightbox_next')
-       
         buttonRight.setAttribute('aria-label','next image')
         lightbox.appendChild(buttonRight)
+        
     
         const buttonClose = document.createElement('button')
         buttonClose.classList.add('lightbox_close')
