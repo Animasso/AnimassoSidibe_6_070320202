@@ -144,6 +144,7 @@ class Lightbox {
 
   prevImage() {
     const prevImage = document.querySelector(".lightbox_prev");
+    console.log(prevImage);
     prevImage.addEventListener("click", (e) => {
       e.preventDefault();
       let i = this.gallery.findIndex((image) => image === this.url);
@@ -158,14 +159,16 @@ class Lightbox {
   listener(){
     const modalLightBox = document.getElementById("modalLightBox");
     modalLightBox.addEventListener("keydown", (e) => { 
-      if ( e.keyCode == '37') 
+      if ( e.keyCode === 37) 
       console.log(e.keyCode);{
-       this.prevImage();
-      }if (e.keyCode == '39') { 
-       this.nextImage();
+       this.prevImage( console.log('je mexecute'));
+       
+      }if (e.keyCode === 39) { 
+       this.nextImage( console.log('je mexecute'));
        console.log(e.keyCode)
+    
       }
-      console.log('je mexecute');
+     
     });
   }
 }
