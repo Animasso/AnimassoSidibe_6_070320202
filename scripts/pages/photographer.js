@@ -1,11 +1,12 @@
 /* eslint-disable no-undef */
-//Mettre le code JavaScript lié à la page photographer.html
+//Mise en place pour l'affichage du header de la page d'un photographe
 function displayHeader(photographer) {
   const banner = document.querySelector(".photographHeader");
   const photographerModel = photographerFactory(photographer);
   const userHeaderDOM = photographerModel.getUserHeaderDOM();
   banner.appendChild(userHeaderDOM);
 }
+//Mise en place pour l'affichage des medias de la page d'un photographe
 function displayMedias(medias) {
   medias.forEach((oneMedia) => {
     const displayPhotos = document.getElementById("display-photos");
@@ -14,33 +15,29 @@ function displayMedias(medias) {
     displayPhotos.appendChild(mediasCardDOM);
   });
 }
-
+//Suppression de la partie des medias pour l'affichage des medias selon le filtre
 function deleteChild() {
   var e = document.getElementById("display-photos");
   e.innerHTML = "";
 }
-
+//initialisation de la page photographe
 async function init() {
   const data = await fetch(
     "https://raw.githubusercontent.com/Animasso/AnimassoSidibe_6_070320202/main/data/photographers.json"
   ).then((response) => response.json());
-  //console.log(data);
+  //changement de url de la page en fonction de l'id du photographe
   let windowLocal = window.location.search;
   let searchParams = new URLSearchParams(windowLocal);
   const idPhotographer = searchParams.get("id");
-
-  console.log(windowLocal);
-  console.log(idPhotographer);
 
   const photographers = data.photographers;
   const medias = data.media;
   const onePhotograph = photographers.find(
     (photographer) => photographer.id == idPhotographer
   );
-  //console.log(onePhotograph);
+
   //afficher le le nom du photographe dans le formulaire
   const spanName = document.getElementById("formName");
-  //console.log(spanName);
   if (onePhotograph) {
     const photographName = onePhotograph.name;
     spanName.textContent = photographName;
@@ -50,10 +47,7 @@ async function init() {
   let oneMedia = medias.filter(
     (media) => media.photographerId == idPhotographer
   );
-  //console.log(oneMedia);
-
-  //obtenir les medias filtrer
-
+  //obtenir les medias filtrer selon la popularité ,date et le titre
   if (onePhotograph) {
     const filterMedias = document.getElementById("filter-select");
     filterMedias.addEventListener("change", (e) => {
@@ -80,6 +74,7 @@ async function init() {
         displayPhotos.appendChild(mediasCardDOM);
       });
       likesPhotos();
+      listenerLike();
       Lightbox.init();
     });
   }
@@ -87,35 +82,30 @@ async function init() {
   //mise en place du footer
   function displayFooter(photographer) {
     const footer = document.querySelector(".like_price");
-    //console.log(footer);
     const footerModel = footerFactory(photographer);
     const footerCardDOM = footerModel.footerCardDOM();
     footer.appendChild(footerCardDOM);
+
     //pour obtenir le nombre total de like d'un photographe
     const spanLike = document.querySelector(".likes-Footer");
-    //console.log(spanLike);
     if (onePhotograph) {
       let arrayOfLikes = [];
       oneMedia.forEach((media) => {
         arrayOfLikes.push(media.likes);
       });
-      //console.log(arrayOfLikes);
+
       const addition = (previousValue, currentValue) =>
         previousValue + currentValue;
       const totalLikesMedias = arrayOfLikes.reduce(addition);
-      console.log(totalLikesMedias);
       spanLike.innerHTML = totalLikesMedias;
     }
   }
 
   displayMedias(oneMedia);
-  //console.log(oneMedia);
-  //console.log(onePhotograph);
   if (typeof likesPhotos === typeof Function) likesPhotos();
   if (onePhotograph) {
     displayFooter(onePhotograph);
     Lightbox.init();
-    
   }
 }
 init();

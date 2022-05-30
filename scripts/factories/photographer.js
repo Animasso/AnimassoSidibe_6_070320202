@@ -36,7 +36,6 @@ function photographerFactory(data) {
   
         const sectionHeader = document.createElement('article')
         sectionHeader.classList.add('infoPhotograph')
-        
 
         const localisation = document.createElement('div')
         localisation.classList.add('name_localisation')

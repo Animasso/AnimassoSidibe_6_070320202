@@ -2,12 +2,11 @@
 const main = document.getElementById("mainPhotograph");
 const footer = document.querySelector(".like_price");
 const lightBox = document.getElementById("modalLightBox");
-
 const firstName = document.getElementById("first_name");
 const lastName = document.getElementById("last_name");
 const email = document.getElementById("email");
 const message = document.getElementById("message");
-
+const photoHeader = document.querySelector(".secondHeader");
 const firstError = document.getElementById("errorFirst");
 const lastError = document.getElementById("errorLast");
 const emailError = document.getElementById("errorEmail");
@@ -17,20 +16,21 @@ const closeForm = document.querySelector(".closeForm");
 
 //pour ouvrir le modal formulaire
 function displayModal() {
-  modal.ariaHidden = "false";
-  modal.style.display = "block";
+  photoHeader.style.display = "none";
   main.style.display = "none";
   footer.style.display = "none";
-  lightBox.style.display = "none";
+  modal.style.display = "block";
+  modal.setAttribute("aria-hidden", "false");
 }
 //pour fermer le modal formulaire
 function closeModal() {
-  modal.style.display = "none";
-  modal.ariaHidden = "true";
+  photoHeader.style.display = "block";
   main.style.display = "block";
   footer.style.display = "block";
-  lightBox.style.display = "none";
+  modal.setAttribute("aria-hidden", "true");
+  modal.style.display = "none";
 }
+//eventListener pour le formulaire
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     closeModal();
@@ -44,7 +44,6 @@ closeForm.addEventListener("keydown", (e) => {
 
 //envoi du formaulaire
 const form = document.getElementById("contact_Photograph");
-console.log(form);
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   //creation de variable pour stocker les valeurs du formulaire
@@ -103,13 +102,9 @@ form.addEventListener("submit", (e) => {
   console.log(lastNameValue);
   console.log(emailValue);
   console.log(messageValue);
-  //si il n'y a aucune erreur  la fonction est appelée
+  //si il n'y a aucune erreur le formulaire est envoyé et remis à zéro
   if (formIsValid === true) {
-    const modal = document.getElementById("contact_modal");
-    modal.style.display = "none";
-    main.style.display = "block";
-    footer.style.display = "block";
-    lightBox.style.display = "none";
+    closeModal();
     form.reset();
   }
 });

@@ -2,7 +2,7 @@
 /* eslint-disable no-undef */
 const secondHeader = document.querySelector(".secondHeader");
 
-
+//ouverture de la lightbox
 function openLightBox() {
   const main = document.getElementById("mainPhotograph");
   const modal = document.getElementById("contact_modal");
@@ -13,6 +13,7 @@ function openLightBox() {
   main.style.display = "none";
   footer.style.display = "none";
 }
+//fermeture de la lightbox
 function closeBox() {
   const main = document.getElementById("mainPhotograph");
   modalLightBox.style.display = "none";
@@ -23,10 +24,8 @@ function closeBox() {
 
 class Lightbox {
   static init() {
-    //   console.log(`start init lightbox`);
+    //recuperation des médias
     const srcMedia = [];
-
-    console.log(document.querySelectorAll(".portofolio"));
     document.querySelectorAll(".portofolio").forEach((item) => {
       if (item.src) {
         srcMedia.push(item.src);
@@ -41,14 +40,12 @@ class Lightbox {
           gallery,
           titles
         );
-        console.log(e.currentTarget.getAttribute("data-title"));
       });
     });
     let gallery = srcMedia;
     let titles = [];
     document.querySelectorAll(".title").forEach((item) => {
       titles.push(item.innerText);
-      console.log(titles);
     });
   }
 
@@ -59,7 +56,7 @@ class Lightbox {
     this.gallery = gallery;
     this.nextImage();
     this.prevImage();
-    this.listener()
+    this.listener();
     this.titles = titles;
   }
   lightBoxCardDOM(url) {
@@ -70,6 +67,7 @@ class Lightbox {
     modalLightBox.appendChild(lightBoxCardDOM);
     return modalLightBox;
   }
+  //Mise en place du chargement de l'image ou de la video avec le titre
   loadImage(url, titles) {
     this.url = null;
     const container = document.querySelector(".lightbox_container");
@@ -78,27 +76,26 @@ class Lightbox {
     imgContainer.classList.add("img_container");
     imgContainer.setAttribute("src", url);
     imgContainer.setAttribute("data-title", titles);
-    imgContainer.setAttribute("tabindex", 1);
+    imgContainer.setAttribute("tabindex", 0);
+    imgContainer.setAttribute("aria-label", titles);
 
     const videoContainer = document.createElement("video");
     videoContainer.classList.add("video_container");
     videoContainer.setAttribute("controls", "");
     videoContainer.setAttribute("src", url);
     videoContainer.setAttribute("data-title", titles);
+    videoContainer.setAttribute("aria-label", titles);
     videoContainer.setAttribute("type", "video/mp4");
-    videoContainer.setAttribute("tabindex", 1);
+    videoContainer.setAttribute("tabindex", 0);
 
     const loader = document.createElement("div");
     loader.classList.add("lightbox_loader");
     container.innerHTML = "";
     container.appendChild(loader);
     if (url.substr(-4) == ".mp4") {
-      console.log(url.substr(-4));
       container.removeChild(loader);
       container.appendChild(videoContainer);
       this.url = url;
-      console.log(url);
-      console.log("chargé");
       videoContainer.src = url;
       const titleMedia = document.createElement("h2");
       titleMedia.id = "lightbox-title-id";
@@ -107,15 +104,10 @@ class Lightbox {
 
       const titleElement = document.getElementById("lightbox-title-id");
       titleElement.textContent = titles;
-      console.log(url);
-      console.log(titles);
     } else {
-      console.log(url.substr(-4));
       container.removeChild(loader);
       container.appendChild(imgContainer);
       this.url = url;
-      console.log(url);
-      console.log("chargé");
       imgContainer.src = url;
       const titleMedia = document.createElement("h2");
       titleMedia.id = "lightbox-title-id";
@@ -124,13 +116,11 @@ class Lightbox {
 
       const titleElement = document.getElementById("lightbox-title-id");
       titleElement.textContent = titles;
-      console.log(url);
     }
   }
-
+  //changement d'image avec les boutons précedent et suivant
   nextImage() {
     const nextImage = document.querySelector(".lightbox_next");
-    console.log(nextImage);
     nextImage.addEventListener("click", (e) => {
       e.preventDefault();
       let i = this.gallery.findIndex((image) => image === this.url);
@@ -139,38 +129,34 @@ class Lightbox {
       }
       this.loadImage(this.gallery[i + 1], this.titles[i + 1]);
     });
-   
   }
-
   prevImage() {
     const prevImage = document.querySelector(".lightbox_prev");
-    console.log(prevImage);
     prevImage.addEventListener("click", (e) => {
       e.preventDefault();
       let i = this.gallery.findIndex((image) => image === this.url);
-     
+
       if (i === 0) {
         i = this.gallery.length;
       }
       this.loadImage(this.gallery[i - 1], this.titles[i - 1]);
     });
-    
   }
-  listener(){
-    const modalLightBox = document.getElementById("modalLightBox");
-    modalLightBox.addEventListener("keydown", (e) => { 
-      if ( e.keyCode === 37) 
-      console.log(e.keyCode);{
-       this.prevImage( console.log('je mexecute'));
-       
-      }if (e.keyCode === 39) { 
-       this.nextImage( console.log('je mexecute'));
-       console.log(e.keyCode)
-    
+
+  //eventlistener pour la lightbox
+  listener() {
+    document.addEventListener("keydown", (e) => {
+      if (e.keyCode === 37) {
+        document.querySelector(".lightbox_prev").click();
       }
-     
+      if (e.keyCode === 39) {
+        document.querySelector(".lightbox_next").click();
+      }
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeBox();
+      }
     });
   }
 }
-
-

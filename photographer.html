@@ -15,6 +15,31 @@
       href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
     <title>Fisheye - photographe</title>
   </head>
   <body>
@@ -23,7 +48,7 @@
         <img src="assets/images/logo.png" class="logo2" alt="logo" />
       </a>
     </header>
-    <main id="mainPhotograph" aria-hidden="false">
+    <main id="mainPhotograph">
       <section
         class="photographHeader"
         aria-label="photographer info"
@@ -42,23 +67,18 @@
         tabindex="0"
       ></section>
     </main>
-    <div
-      id="modalLightBox"
-      role="dialog"
-      aria-hidden="true"
-      aria-label="image closeup view"
-      tabindex="0"
-    ></div>
-    <div id="contact_modal">
-      <div class="modal" aria-hidden="false" role="dialog">
+    <div id="contact_modal" aria-hidden="true" role="dialog" tabindex="0">
+      <div class="modal">
         <header class="formGroup">
-          <h2 tabindex="0">Contactez-moi <br /><span id="formName"></span></h2>
+          <h2 id="contact" tabindex="0">
+            Contactez-moi <br /><span id="formName"></span>
+          </h2>
           <img
             class="closeForm"
             src="assets/icons/close.svg"
             tabindex="0"
             onclick="closeModal()"
-            aria-label="fermer le formulaire"
+            aria-label="closeModal"
             alt=""
           />
         </header>
@@ -118,15 +138,21 @@
         </form>
       </div>
     </div>
+    <div
+      id="modalLightBox"
+      role="dialog"
+      aria-hidden="true"
+      aria-label="image closeup view"
+      tabindex="0"
+    ></div>
 
     <footer class="like_price"></footer>
     <script src="/scripts/factories/mediaPhotgrapher.js"></script>
     <script src="/scripts/utils/addLikes.js"></script>
     <script src="/scripts/factories/footerFactory.js"></script>
-
     <script src="/scripts/utils/lightbox.js"></script>
     <script src="/scripts/factories/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
-    <script src="/scripts/factories/lightboxFact.js"></script>
+    <script src="/scripts/factories/lightboxFactory.js"></script>
   </body>
 </html>
